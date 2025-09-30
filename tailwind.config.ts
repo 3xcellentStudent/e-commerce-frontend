@@ -20,7 +20,16 @@ const config: Config = {
         }
       },
       colors: {
-        // ''
+        'light': "#F5EBD7",
+        'light-warm': "#EAD7B1",
+        'gold-white': "#D8B972",
+        'gold': "#C89B3C",
+        'brown': "#933E13",
+        'brown-dark': "#4D3A10",
+        'green-light': "#9BA96F",        
+        'green': "#7C8F5A",
+        'green-dark': "#6F7D4E",
+        'menthol': "#8D9E75",
       }
     },
     screens: {

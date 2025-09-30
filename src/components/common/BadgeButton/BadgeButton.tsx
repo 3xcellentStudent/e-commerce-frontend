@@ -8,29 +8,29 @@ import { GlobalDataType } from "@/types/main/globalData.type"
 import { CALL_CART_STATE_CONST, CART_IS_OPEN_SAVE_CONST } from "@/redux/cart/constants"
 
 interface Props {
-  color: string
-  cls?: string
+  className?: string
   children: ReactNode
 }
 
-interface CustomBadgeThemeType {color: string, backgroundcolor: string}
+// interface CustomBadgeThemeType {color: string, backgroundcolor: string}
 
-const CustomBadge = styled(Badge)(({backgroundcolor, color}: CustomBadgeThemeType) => ({
+// const CustomBadge = styled(Badge)(({backgroundcolor, color}: CustomBadgeThemeType) => ({
+const CustomBadge = styled(Badge)(() => ({
   "& .MuiBadge-badge": {
-    backgroundColor: backgroundcolor,
-    color: color,
+    // backgroundColor: backgroundcolor,
+    // color: color,
   },
 }));
 
-export default function BadgeButton({cls, children}: Props){
+export default function BadgeButton({className, children}: Props){
 
   const dispatch = useDispatch()
 
-  const {cart: {length}} = useSelector(({cartObject}: {cartObject: CartObjectType}) => cartObject)
+  // const {cart: {length}} = useSelector(({cartObject}: {cartObject: CartObjectType}) => cartObject)
 
-  const {secondaryBg, primaryText} = useSelector(({
-    globalData: {colors: {backgrounds, text}}
-  }: {globalData: GlobalDataType}) => ({...backgrounds, ...text}))
+  // const {secondaryBg, primaryText} = useSelector(({
+  //   globalData: {colors: {backgrounds, text}}
+  // }: {globalData: GlobalDataType}) => ({...backgrounds, ...text}))
 
   function handleClick(){
     dispatch(actionCallCartState({type: CART_IS_OPEN_SAVE_CONST, payload: null}))
@@ -38,7 +38,8 @@ export default function BadgeButton({cls, children}: Props){
 
   return(
     <button onClick={handleClick}>
-      <CustomBadge badgeContent={length} backgroundcolor={secondaryBg.hex} color={primaryText.hex}>
+      <CustomBadge className={className} 
+      badgeContent={length}>
         {children}
       </CustomBadge>
     </button>

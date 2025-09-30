@@ -1,0 +1,110 @@
+.section {
+  position: relative;
+  padding-top: 7rem;
+  height: calc(100svh + 4rem);
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wrapper {
+  z-index: 1;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  width: 100%;
+  height: calc(100svh - 7rem);
+  padding: 0 0 6rem;
+
+  &:last-child {
+    align-items: end;
+  }
+
+  .image_block {
+    // width: 100%;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+
+    &:last-child {
+      .image_container {
+        width: 400px;
+        // margin-left: 120px;
+      }
+    }
+
+    &:last-child {
+      margin-top: 2rem;
+    }
+    
+    .image_container {
+      box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+      overflow-x: hidden;
+      border-radius: 1rem;
+      position: relative;
+      width: 500px;
+      height: 100%;
+      z-index: 1;
+      // margin: 0 auto;
+
+      .main_picture {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+    }
+  }
+
+  .description_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    // padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+    // text-shadow: 10px 2px 6px rgba(0, 0, 0, 0.7);
+    
+    .text {
+      &_large {
+        font-size: 4rem;
+        font-weight: bold;
+        text-align: start;
+        font-family: var(--font-mollie);
+      }
+      &_small {
+        font-size: 1.25rem;
+        text-align: start;
+        font-weight: 500;
+        margin-top: 3rem;
+      }
+    }
+  }
+
+  .buttons_container {
+    .button {
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1.25rem;
+      cursor: pointer;
+      border-radius: 0.75rem;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+  }
+}
