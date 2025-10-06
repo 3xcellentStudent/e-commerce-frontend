@@ -1,5 +1,7 @@
 import CallMadeIcon from '@mui/icons-material/CallMade';
 import styles from '../styles.module.scss';
+import Link from 'next/link';
+import ButtonLines from '@/components/common/Buttons/ButtonLines/ButtonLines';
 
 interface Props {
   backgroundImage: string;
@@ -26,10 +28,13 @@ export default function RightBlock({ backgroundImage, textArray }: Props){
         </div>
 
         <div className={`${styles.buttons_container} flex flex-row mt-6 w-[70%] justify-start`}>
-          <button className={`${styles.button} bg-gold hover:bg-brown text-white flex flex-row items-center gap-2`}>
+          {/* <button className={`${styles.button} bg-gold hover:bg-brown text-white flex flex-row items-center gap-2`}>
             <span>See Our Catalog</span>
             <div><CallMadeIcon className='mb-1 w-[1.25rem] h-[1.25rem]'/></div>
-          </button>
+          </button> */}
+          <Link href="#" >
+            <ButtonLines text='See Our Catalog' />
+          </Link>
         </div>
       </div>
   )

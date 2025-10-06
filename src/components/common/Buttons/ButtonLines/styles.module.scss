@@ -1,0 +1,53 @@
+.button {
+  padding: 1rem;
+  font-size: 1.25rem;
+  transition: .2s ease-in;
+  position: relative;
+
+  .line {
+    
+    &_top, &_right, &_bottom, &_left {
+      pointer-events: none;
+      transition: inherit ;
+      // transform: rotateZ(5deg);
+    }
+
+    &_top {
+      right: 0;
+      top: -10%;
+    }
+    &_right {
+      right: -5%;
+      top: 0;
+    }
+    &_bottom {
+      left: 0;
+      bottom: -10%;
+    }
+    &_left {
+      left: -5%;
+      bottom: 0;
+    }
+  }
+
+  &:hover {
+    .line {
+      &_top, &_right, &_bottom, &_left {
+        // transform: rotateZ(0deg);
+      }
+
+      &_top {
+        top: 0%;
+      }
+      &_right {
+        right: 0%;
+      }
+      &_bottom {
+        bottom: 0%;
+      }
+      &_left {
+        left: 0%;
+      }
+    }
+  }
+}

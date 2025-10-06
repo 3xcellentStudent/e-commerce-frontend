@@ -8,12 +8,29 @@
   flex-direction: row;
 }
 
-.description {
-  width: 300px;
-  padding-right: 50px;
-  border-right: 1px solid #ccc;
+// .description {
+//   width: 288px;
+//   height: 288px;
+//   padding-right: 1.5rem;
+//   border-right: 1px solid #ccc;
 
-  &_article {
-    margin-top: 2rem;
+//   &_article {
+//     margin-top: 2rem;
+//   }
+// }
+
+.carousel {
+  padding: 1rem 0;
+  
+  &_container {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-wrap: wrap;
+    gap: 1rem;
+    
+  }
+  
+  &_item {
   }
 }

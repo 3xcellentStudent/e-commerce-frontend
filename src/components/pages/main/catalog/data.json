@@ -1,0 +1,62 @@
+[
+    {
+      "tailwindStyles": {
+        "description": "text-brown-dark", 
+        "title": "bg-[linear-gradient(102deg,_rgba(255,0,0,0.85)_0%,_rgba(3,5,29,0.85)_0%)] group-hover:bg-[linear-gradient(102deg,_rgba(255,0,0,0.85)_3%,_rgba(3,5,29,0.85)_100%)] text-brown-dark "
+      },
+      "text": {
+        "title": "Essential Oils", 
+        "description": "Some description which will add to each category"
+      },
+      "images": [
+        {"src": "https://www.saharanaturals.com/cdn/shop/collections/bath-oil-2510793_1920.jpg?crop=center&height=1200&v=1612905194&width=1200", "alt": "Essential Oils", "media": "(width <= 1200px)"},
+        {"src": "https://www.saharanaturals.com/cdn/shop/collections/bath-oil-2510793_1920.jpg?crop=center&height=1200&v=1612905194&width=1200", "alt": "Essential Oils", "media": "(width <= 600px)"},
+        {"src": "https://www.saharanaturals.com/cdn/shop/collections/bath-oil-2510793_1920.jpg?crop=center&height=1200&v=1612905194&width=1200", "alt": "Essential Oils", "media": null}
+      ]
+    },
+    {
+      "tailwindStyles": {
+        "description": "text-brown-dark", 
+        "title": "bg-light-warm group-hover:bg-gold-white/90 text-brown-dark "
+      },
+      "text": {
+        "title": "Essential Oils", 
+        "description": "Some description which will add to each category"
+      },
+      "images": [
+        {"src": "https://www.saharanaturals.com/cdn/shop/collections/bath-oil-2510793_1920.jpg?crop=center&height=1200&v=1612905194&width=1200", "alt": "Essential Oils", "media": "(width <= 1200px)"},
+        {"src": "https://www.saharanaturals.com/cdn/shop/collections/bath-oil-2510793_1920.jpg?crop=center&height=1200&v=1612905194&width=1200", "alt": "Essential Oils", "media": "(width <= 600px)"},
+        {"src": "https://www.saharanaturals.com/cdn/shop/collections/bath-oil-2510793_1920.jpg?crop=center&height=1200&v=1612905194&width=1200", "alt": "Essential Oils", "media": null}
+      ]
+    },
+    {
+      "tailwindStyles": {
+        "description": "text-brown-dark", 
+        "title": "bg-light-warm group-hover:bg-gold-white/90 text-brown-dark "
+      },
+      "text": {
+        "title": "Essential Oils", 
+        "description": "Some description which will add to each category"
+      },
+      "images": [
+        {"src": "https://www.saharanaturals.com/cdn/shop/collections/bath-oil-2510793_1920.jpg?crop=center&height=1200&v=1612905194&width=1200", "alt": "Essential Oils", "media": "(width <= 1200px)"},
+        {"src": "https://www.saharanaturals.com/cdn/shop/collections/bath-oil-2510793_1920.jpg?crop=center&height=1200&v=1612905194&width=1200", "alt": "Essential Oils", "media": "(width <= 600px)"},
+        {"src": "https://www.saharanaturals.com/cdn/shop/collections/bath-oil-2510793_1920.jpg?crop=center&height=1200&v=1612905194&width=1200", "alt": "Essential Oils", "media": null}
+      ]
+    },
+    {
+      "tailwindStyles": {
+        "description": "text-brown-dark", 
+        "title": "bg-light-warm group-hover:bg-gold-white/90 text-brown-dark "
+      },
+      "text": {
+        "title": "Essential Oils", 
+        "description": "Some description which will add to each category"
+      },
+      "images": [
+        {"src": "https://www.saharanaturals.com/cdn/shop/collections/bath-oil-2510793_1920.jpg?crop=center&height=1200&v=1612905194&width=1200", "alt": "Essential Oils", "media": "(width <= 1200px)"},
+        {"src": "https://www.saharanaturals.com/cdn/shop/collections/bath-oil-2510793_1920.jpg?crop=center&height=1200&v=1612905194&width=1200", "alt": "Essential Oils", "media": "(width <= 600px)"},
+        {"src": "https://www.saharanaturals.com/cdn/shop/collections/bath-oil-2510793_1920.jpg?crop=center&height=1200&v=1612905194&width=1200", "alt": "Essential Oils", "media": null}
+      ]
+    }
+  ]

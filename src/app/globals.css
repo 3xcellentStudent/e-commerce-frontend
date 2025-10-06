@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --light: theme('colors.light');
+    --light-warm: theme('colors.light-warm');
+    --gold-white: theme('colors.gold-white');
+    --gold: theme('colors.gold');
+    --brown: theme('colors.brown');
+    --brown-dark: theme('colors.brown-dark');
+    --green-light: theme('colors.green-light');
+    --green: theme('colors.green');
+    --green-dark: theme('colors.green-dark');
+    --menthol: theme('colors.menthol');
+  }
+}
 
 input {outline: none;}
 input[type="number"]::-webkit-inner-spin-button,
