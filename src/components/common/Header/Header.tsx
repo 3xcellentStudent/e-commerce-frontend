@@ -5,7 +5,7 @@ import styles from "./styles.module.scss"
 import { useSelector } from 'react-redux';
 import { usePathname, useParams } from 'next/navigation';
 import BadgeButton from '../BadgeButton/BadgeButton';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { GlobalDataType } from '@/types/main/globalData.type';
 import BasicSpeedDial from '../BasicSpeedDial/BasicSpeedDial';
 import Link from 'next/link';
@@ -25,14 +25,32 @@ export default function Header(){
 
   const [headerState, setHeaderState] = useState<boolean>(false)
 
-  const scrollEffects = useCallback(() => {
-    if(window.scrollY > 100) setHeaderState(false)
-    else if(window.scrollY < 100) setHeaderState(true)
-  }, [headerState])
+  // const scrollEffects = useCallback(() => {
+  //   if(window.scrollY > 100){
+  //     setHeaderState(false)
+  //     document.querySelector(styles.container)?.classList.add("container_hidden")
+  //   } else if(window.scrollY < 100){
+  //     setHeaderState(true)
+  //     document.querySelector(styles.container)?.classList.remove("container_hidden")
+  //   }
+  // }, [headerState])
 
   useEffect(() => {
-    scrollEffects()
-    window.onscroll = scrollEffects
+    // scrollEffects()
+
+    const selector = document.querySelector(`.${styles.header}`);
+
+    const scrollHandler = () => {
+      if(window.scrollY > 100){
+        setHeaderState(false)
+        selector?.classList.add(styles.header_hidden)
+      } else if(window.scrollY < 100){
+        setHeaderState(true)
+        selector?.classList.remove(styles.header_hidden)
+      }
+    };
+
+    window.onscroll = scrollHandler;
   }, [])
 
   return (

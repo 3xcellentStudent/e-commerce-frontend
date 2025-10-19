@@ -1,8 +1,8 @@
 [
     {
       "tailwindStyles": {
-        "description": "text-brown-dark", 
-        "title": "bg-[linear-gradient(102deg,_rgba(255,0,0,0.85)_0%,_rgba(3,5,29,0.85)_0%)] group-hover:bg-[linear-gradient(102deg,_rgba(255,0,0,0.85)_3%,_rgba(3,5,29,0.85)_100%)] text-brown-dark "
+        "description": "text-white", 
+        "title": "text-white"
       },
       "text": {
         "title": "Essential Oils", 
@@ -16,8 +16,8 @@
     },
     {
       "tailwindStyles": {
-        "description": "text-brown-dark", 
-        "title": "bg-light-warm group-hover:bg-gold-white/90 text-brown-dark "
+        "description": "text-white", 
+        "title": "text-white"
       },
       "text": {
         "title": "Essential Oils", 
@@ -31,8 +31,8 @@
     },
     {
       "tailwindStyles": {
-        "description": "text-brown-dark", 
-        "title": "bg-light-warm group-hover:bg-gold-white/90 text-brown-dark "
+        "description": "text-white", 
+        "title": "text-white"
       },
       "text": {
         "title": "Essential Oils", 
@@ -46,8 +46,8 @@
     },
     {
       "tailwindStyles": {
-        "description": "text-brown-dark", 
-        "title": "bg-light-warm group-hover:bg-gold-white/90 text-brown-dark "
+        "description": "text-white", 
+        "title": "text-white"
       },
       "text": {
         "title": "Essential Oils", 

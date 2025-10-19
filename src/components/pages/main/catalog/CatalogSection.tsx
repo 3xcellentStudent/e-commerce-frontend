@@ -7,20 +7,8 @@ import styles from './styles.module.scss'
 export default function CatalogSection(){
 
   return(
-    <section className={`${styles.section} text-brown-dark `} id='main-page-title-section'>
+    <section className={`${styles.section}`} id='main-page-title-section'>
       <div className={`${styles.container} flex`}>
-        {/* <div className={styles.description}>
-          <h5 className='text-gold-white uppercase text-sm font-bold'>Catalog</h5>
-          <h2 className='text-4xl text-brown-dark mt-2'>
-            Our Products
-          </h2>
-          <article className={styles.description_article}>
-            <p className='text-brown-dark/70 text-base'>
-              In here, you can see some of our categories sorted for you. You can scroll them and click which you like for more details to see more products.
-            </p>
-          </article>
-        </div> */}
-
         <div className={styles.carousel}>
           <ul className={styles.carousel_container}>
             <li>
@@ -30,23 +18,12 @@ export default function CatalogSection(){
                 description='In here, you can see some of our categories sorted for you. You can scroll them and click which you like for more details to see more products.' 
                 styles={{
                   article: "mt-[2rem]", 
-                  container: "w-[288px] h-[288px] pr-[1.5rem] border-r border-[#ccc] border-solid",
+                  container: "w-[288px] h-[288px] pr-[1.5rem] border-r border-b border-[#ccc] border-solid",
                   description: "text-brown-dark/70 text-base",
                   smallTitle: "text-gold uppercase text-sm font-bold",
                   title: "text-5xl text-brown-dark mt-2",
                 }}
               />
-              {/* <div className={styles.description}>
-                <h5 className='text-gold-white uppercase text-sm font-bold'>Catalog</h5>
-                <h2 className='text-4xl text-brown-dark mt-2'>
-                  Our Products
-                </h2>
-                <article className={styles.description_article}>
-                  <p className='text-brown-dark/70 text-base'>
-                    In here, you can see some of our categories sorted for you. You can scroll them and click which you like for more details to see more products.
-                  </p>
-                </article>
-              </div> */}
             </li>
 
             {data.map((props, index) => {

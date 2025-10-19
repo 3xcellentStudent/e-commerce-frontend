@@ -1,0 +1,69 @@
+{
+		"id": "3125c51e-4ec9-3341-ae55-b51df2fa8969",
+		"reviewsId": [],
+		"mediaId": "3125c51e-4ec9-3341-ae55-b51df2fa8969",
+		"productVariationsId": [],
+		"rating": null,
+		"productName": "Organic Lavender Essential Oil",
+		"descriptions": {
+			"summary": "Summary about rhis product",
+			"presentable": [
+				"100% pure",
+				"Steam distilled",
+				"Made in France"
+			]
+		},
+		"productVariations": [],
+		"specifications": {
+			"titles": [
+				"Ingredients",
+				"Shipping & Returning",
+				"Shelf life"
+			],
+			"properties": [
+				{
+					"name": "Ingredients",
+					"array": [
+						{
+							"name": "Lavandula angustifolia",
+							"value": "100%"
+						}
+					]
+				},
+				{
+					"name": "Shipping & Returning",
+					"array": [
+						{
+							"name": "Topical",
+							"value": "2-3 drops with carrier oil"
+						},
+						{
+							"name": "Aromatherapy",
+							"value": "Use in diffuser"
+						}
+					]
+				},
+				{
+					"name": "Shelf life",
+					"array": [
+						{
+							"name": "Best before",
+							"value": "24 months"
+						}
+					]
+				}
+			]
+		},
+		"mediaContent": null,
+		"reviewsSnapshot": {
+			"five": 0,
+			"four": 0,
+			"three": 0,
+			"two": 0,
+			"one": 0,
+			"total": 0
+		},
+		"collectionName": "essential-oils",
+		"createdAt": 1760405400597,
+		"updatedAt": 1760405400597
+	}

@@ -1,6 +1,5 @@
 import SectionTitle from '@/components/common/SectionTitle/SectionTitle';
 import PaginationComponent from './parts/PaginationComponent/PaginationComponent';
-import { Box } from '@mui/material';
 
 import styles from "./styles.module.scss"
 import ReviewAnalyticsPanel from './parts/ReviewAnalyticsPanel/ReviewAnalyticsPanel';
@@ -11,13 +10,13 @@ export default function Reviews(){
     <section className='mt-24 px-5'>
       <SectionTitle containerSx={{paddingBottom: "10px"}} >Customer Reviews</SectionTitle>
 
-      <Box className={`flex ${styles.main_container}`}>
+      <div className={`flex ${styles.main_container}`}>
         <ReviewAnalyticsPanel/>
 
         <div className={`${styles.reviews_container}`}>
           <PaginationComponent/>
         </div>
-      </Box>
+      </div>
 
       {/* <div className='w-full flex justify-center'>
         <Box className='w-[80%] h-[2px] my-6' sx={{backgroundColor: elementsOptionalBg.hex}}></Box>

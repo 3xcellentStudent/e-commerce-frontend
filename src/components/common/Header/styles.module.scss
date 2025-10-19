@@ -14,18 +14,26 @@
   z-index: 10;
   left: 0;
   top: 0;
-  transition: .4s ease-in-out;
+  transition: .2s ease-in-out;
 
-  // &:hover {
-    //   backdrop-filter: brightness(50%) blur(6px);
-    // }
+  &_hidden {
+    backdrop-filter: blur(1rem) brightness(.9);
+    background-color: rgba(var(--gold-rgb), .6);
+    box-shadow: rgba(0, 0, 0, .25) 0px 3px 8px;
   }
+
+  &_hidden:hover {
+    opacity: 1;
+    box-shadow: rgba(0, 0, 0, .65) 0px 3px 16px;
+    background-color: rgba(var(--gold-rgb), 1);
+  }
+}
   
 .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: .4s ease-in-out;
+  transition: inherit;
   height: 100%;
 }
 
@@ -48,7 +56,6 @@
   overflow:hidden;
   margin: 0 10px;
   text-decoration: none;
-  // text-transform: uppercase;
   font-weight: 700;
   font-size: 1.15rem;
   transition: all .3s;

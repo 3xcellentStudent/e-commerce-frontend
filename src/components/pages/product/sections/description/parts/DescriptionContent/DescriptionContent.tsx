@@ -6,15 +6,15 @@ import { Box, Typography } from "@mui/material";
 import Button from "@/components/common/Buttons/Button";
 import Link from "next/link";
 import { decrement, increment } from "./actions/PositionActions";
-import { ProductDataType } from '@/types/main/productData.type';
+// import { ProductDataType } from '@/types/main/productData.type';
+
 import styles from "./styles.module.scss"
 
 interface Props {
-  descriptionVideo: string
-  backgroundColor: string
+  descriptionVideo?: string
 }
 
-export default function DescriptionContent({descriptionVideo, backgroundColor}: Props){
+export default function DescriptionContent({descriptionVideo}: Props){
 
   const carouselWrapRef = useRef<any>(null)
 
@@ -22,7 +22,7 @@ export default function DescriptionContent({descriptionVideo, backgroundColor}: 
     <Box className={`${styles.video_container}`}>
       <div className={`${styles.video_wrapper}`}>
         <video className={`${styles.player}`} muted autoPlay loop
-        src='//vitruvi.ca/cdn/shop/videos/c/vp/f7e3669e31214c2784b8397c480a6987/f7e3669e31214c2784b8397c480a6987.HD-1080p-2.5Mbps-30987013.mp4?v=0'></video>
+        src={descriptionVideo}></video>
       </div>
     </Box>
 

@@ -4,14 +4,16 @@ import styles from "./styles.module.scss"
 export default function AboutUs(){
 
   return(
-    <section className={styles.section}>
+    <section className={`${styles.section} bg-brown-dark/30`}>
       <div className={styles.container}>
-        <div className="">
+        <div className={styles.description}>
           <TitleCard 
-            description="Some description about us"
             smallTitle="A little bit"
             title="About Us"
-            styles={{}}
+            description="Some description about us"
+            styles={{
+              smallTitle: "text-gold uppercase text-sm font-bold"
+            }}
           />
         </div>
         <div className=""></div>

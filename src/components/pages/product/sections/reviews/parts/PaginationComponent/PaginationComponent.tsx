@@ -1,17 +1,17 @@
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import { useSelector } from 'react-redux';
-import { ProductDataType } from '@/types/main/productData.type';
 import ReviewsList from '../ReviewsList/ReviewsList';
 import { useEffect, useRef, useState } from 'react';
 import { ReviewsType } from '@/types/main/reviews.type';
 import getReviewsRecursive from '@/api/database/reviews/reviews.api';
+import { ProductGetRecursiveDto } from '@/types/dto/mongodb/product/product.get.recursive.dto';
 
 export default function PaginationComponent() {
 
   const [reviewsList, setReviewsList] = useState<ReviewsType[] | []>([])
 
-  const reviewsId = useSelector(({productData: {reviewsId}}: {productData: ProductDataType}) => (reviewsId))
+  const reviewsId = useSelector(({productData: {reviewsId}}: {productData: ProductGetRecursiveDto}) => (reviewsId))
 
   const sectionRef = useRef<HTMLDivElement | null>(null);
 

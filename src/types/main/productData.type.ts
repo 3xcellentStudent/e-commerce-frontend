@@ -1,21 +1,21 @@
 import { MediaContentType } from "./media.type"
 
-export interface ProductDataType {
-  id: string
-  reviewsId: string[]
-  mediaId: string
-  rating: string
-  title: string
-  descriptions: DescriptionsType
-  stockInfo: StockInfoType
-  productOptions: ProductOptionType[]
-  specifications: SpecificationsType
-  mediaContent: MediaContentType
-  // reviews: ReviewsType[]
-  collectionName: string
-  createdAt: number
-  updatedAt: number
-}
+// export interface ProductDataType {
+//   id: string
+//   reviewsId: string[]
+//   mediaId: string
+//   rating: string
+//   title: string
+//   descriptions: DescriptionsType
+//   stockInfo: StockInfoType
+//   productOptions: ProductOptionType[]
+//   specifications: SpecificationsType
+//   mediaContent: MediaContentType
+//   // reviews: ReviewsType[]
+//   collectionName: string
+//   createdAt: number
+//   updatedAt: number
+// }
 
 export interface DescriptionsType {
   summary: string

@@ -1,8 +1,5 @@
 import { takeLatest, takeEvery, put, take } from 'redux-saga/effects';
 import {GET_PRODUCT_ID, DATA_FROM_DB} from './constants'
-// import {
-//   actionSETProductID, actionChangeOpenCart, actionSaveDataFromDb
-// } from '../actions'
 import { actionChangeShippingData } from './payment/actions';
 import { SHIPPING_DATA } from './payment/constants';
 import { PRODUCT_DATA_CALL, GLOBAL_DATA_CALL } from './database/constants';

@@ -8,12 +8,25 @@
     --light-warm: theme('colors.light-warm');
     --gold-white: theme('colors.gold-white');
     --gold: theme('colors.gold');
+    --coffee: theme('colors.coffee');
     --brown: theme('colors.brown');
     --brown-dark: theme('colors.brown-dark');
     --green-light: theme('colors.green-light');
     --green: theme('colors.green');
     --green-dark: theme('colors.green-dark');
     --menthol: theme('colors.menthol');
+
+    --light-rgb: theme('colors.light-rgb');
+    --light-warm-rgb: theme('colors.light-warm-rgb');
+    --gold-white-rgb: theme('colors.gold-white-rgb');
+    --gold-rgb: theme('colors.gold-rgb');
+    --coffee-rgb: theme('colors.coffee-rgb');
+    --brown-rgb: theme('colors.brown-rgb');
+    --brown-dark-rgb: theme('colors.brown-dark-rgb');
+    --green-light-rgb: theme('colors.green-light-rgb');
+    --green-rgb: theme('colors.green-rgb');
+    --green-dark-rgb: theme('colors.green-dark-rgb');
+    --menthol-rgb: theme('colors.menthol-rgb');
   }
 }
 
