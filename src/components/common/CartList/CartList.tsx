@@ -1,3 +1,5 @@
+'use client'
+
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useRef } from "react"
 import { Box, List, ListItem, Tooltip } from '@mui/material'
@@ -10,16 +12,16 @@ import Quantity from "../Quantity/Quantity"
 import {HighlightOff} from '@mui/icons-material';
 import InternalCircleSVG from "../Radio/InternalCircleSVG"
 import { GlobalDataType } from "@/types/main/globalData.type"
-import { ProductDataType } from "@/types/main/productData.type"
 import { CART_CHANGE_QUANTITY_SAVE_CONST, CART_DELETE_ITEM_SAVE_CONST } from "@/redux/cart/constants"
 import { actionCallCartState } from "@/redux/cart/actions"
+import { ProductFullModel } from "@/types/global/model/product/product.full.model"
 
 
 export default function CartList(){
 
-  const {elementsSecondaryBg, secondaryBg, cart, response, price} = useSelector(({
-    globalData: {colors: {backgrounds}}, productData: {stockInfo: {price}}, cartObject
-  }: {globalData: GlobalDataType, productData: ProductDataType, cartObject: CartObjectType}) => ({...cartObject, ...backgrounds, price}))
+  const {cart, response} = useSelector(({
+    cartObject
+  }: {productData: ProductFullModel, cartObject: CartObjectType}) => ({...cartObject}))
 
   const pathname = usePathname()
   const dispatch = useDispatch()
@@ -36,23 +38,23 @@ export default function CartList(){
   }
 
   return(
-    <Box className="h-full" sx={{backgroundColor: secondaryBg.hex}}>
+    <div className="h-full">
       <List className={`${styles.list} py-4 h-[calc(100%-49px)] overflow-y-auto relative backdrop-blur-xl`}>
         {
           cart?.length ? (
             cart?.map((obj, index) => {
 
               const {
-                productName, productImg, productId, quantity, fields, checked
+                productName, productImg, productId, quantity, fields, checked, price
               } = obj
 
               return(
-                  <ListItem ref={itemRef} key={index} sx={{backgroundColor: elementsSecondaryBg.hex}} 
+                  <ListItem ref={itemRef} key={index} 
                   className={`w-[calc(100%-16px)] rounded-xl flex flex-row justify-between items-center m-2 p-2 pr-4 ${styles.container}`}>
                     
                     <div className="flex flex-row h-full">
                       <div className={`relative h-full ${styles.image_container}`}>
-                        <img className="absolute w-full h-full object-scale-down" src={productImg.at(-1)?.src} alt="logo" />
+                        <img className="absolute w-full h-full object-scale-down" src={productImg} alt="logo" />
                       </div>
 
                       <div className="h-full p-2 border-stone-500 border-r-[1px]">
@@ -100,6 +102,6 @@ export default function CartList(){
         {cart.length > 0 && <ViewCartButton/>}
       </List>
 
-    </Box>
+    </div>
   )
 }

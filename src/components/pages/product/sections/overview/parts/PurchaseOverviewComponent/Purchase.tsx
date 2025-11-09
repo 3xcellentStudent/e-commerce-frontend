@@ -8,11 +8,11 @@ import AddCartComp from "./parts/AddCartComp/AddCartComp"
 import { CartProduct } from "@/types/storeTypes"
 import { Box, Typography } from "@mui/material"
 import styles from "./styles.module.scss"
-import { ProductDataType } from "@/types/main/productData.type"
 import { FieldsRefType, SetTotalObjType } from "@/types/pages/product/overview.types"
 import { GlobalDataType } from "@/types/main/globalData.type"
 import { actionCallCartState } from "@/redux/cart/actions"
 import { CART_ADD_ITEM_SAVE_CONST } from "@/redux/cart/constants"
+import { ProductGetRecursiveDto } from "@/types/dto/mongodb/product/product.get.recursive.dto"
 
 interface Props {
   productId: string
@@ -29,17 +29,24 @@ export default function Purchase({productId, carouselState}: Props){
   const {productData, elementsPrimaryBg, elementsOptionalBg, primaryText} = useSelector(({
     productData, 
     globalData: {colors: {backgrounds, text: {primaryText}}}
-  }: {productData: ProductDataType, globalData: GlobalDataType}) => ({
+  }: {productData: ProductGetRecursiveDto, globalData: GlobalDataType}) => ({
     productData, ...backgrounds, primaryText
   }))
 
   function fieldsRefFunction(){
-    return productData?.productOptions.length ? 
-    productData?.productOptions?.map((options) => {
-      const {name, items, type} = options
-      const {fill: background, value, stockStatus} = items[0]
-      setInstockStatus(stockStatus)
-      const result = {background, index: 0, name, type, value, stockStatus}
+    // return productData?.productOptions.length ? 
+    // productData?.productOptions?.map((options) => {
+    //   const {name, items, type} = options
+    //   const {fill: background, value, stockStatus} = items[0]
+    //   setInstockStatus(stockStatus)
+    //   const result = {background, index: 0, name, type, value, stockStatus}
+    //   return result;
+    // }) : []
+    return productData?.productVariations.length ? 
+    productData?.productVariations?.map((options) => {
+      const {stockInfo, variationName, productOptions, id} = options
+      // setInstockStatus(stockStatus)
+      const result = {index: 0, name, value: variationName, stockInfo}
       return result;
     }) : []
   }

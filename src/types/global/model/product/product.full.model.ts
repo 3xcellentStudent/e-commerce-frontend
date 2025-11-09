@@ -1,6 +1,6 @@
-import { ProductVariationModel } from "./variation/product.get.variation";
+import { ProductVariationModel } from "@/types/global/model/product/variation/product.variation.model";
 
-export interface ProductGetRecursiveDto {
+export interface ProductFullModel {
   id: string;
   reviewsId: string[];
   mediaId: string;

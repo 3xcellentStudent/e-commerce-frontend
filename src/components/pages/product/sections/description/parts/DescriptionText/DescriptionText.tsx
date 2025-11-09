@@ -6,9 +6,9 @@ import { GlobalDataType } from "@/types/main/globalData.type"
 
 export default function DescriptionText({description}: {description: string[]}){
 
-  const {secondaryBg, elementsSecondaryBg, optionalText} = useSelector(({
-    globalData: {colors: {backgrounds, text}}
-  }: {globalData: GlobalDataType}) => ({...backgrounds, ...text}))
+  // const {secondaryBg, elementsSecondaryBg, optionalText} = useSelector(({
+  //   globalData: {colors: {backgrounds, text}}
+  // }: {globalData: GlobalDataType}) => ({...backgrounds, ...text}))
   
   return(
     <div className={`${styles.container}`}>
@@ -19,7 +19,7 @@ export default function DescriptionText({description}: {description: string[]}){
           if(index === description.length - 1){
             return(
               <div key={index}>
-                <Typography sx={{color: optionalText.hex}} className={`${styles.text}`}>{text}</Typography>
+                <span className={`${styles.text}`}>{text}</span>
               </div>
             )
           } else {
@@ -27,8 +27,8 @@ export default function DescriptionText({description}: {description: string[]}){
               <div key={index}>
                 <p className={`${styles.text}`}>{text}</p>
                 <div className={styles.underline}>
-                  <Box className={styles.underline_childs} sx={{backgroundColor: secondaryBg.hex}} />
-                  <Box className={styles.underline_childs} sx={{backgroundColor: elementsSecondaryBg.hex}} />
+                  <div className={`${styles.underline_childs} bg-brown-dark`} />
+                  <div className={`${styles.underline_childs} bg-brown-dark`} />
                 </div>
               </div>
             )

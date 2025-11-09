@@ -1,5 +1,5 @@
 import { REVIEWS_GET_RECURSIVE_DATA_ROUTE } from "@/api/routes/routes";
-import { ReviewsType } from "@/types/main/reviews.type";
+import { ReviewsType } from "@/types/global/model/reviews/reviews.type";
 import { Dispatch, SetStateAction } from "react";
 
 export default async function getReviewsRecursive(reviewsId: string[], action: Dispatch<SetStateAction<[] | ReviewsType[]>>){

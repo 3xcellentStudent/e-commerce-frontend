@@ -1,23 +1,35 @@
-import { ProductIdType } from "@/types/main/productData.type"
+import { ProductVariationModel } from "@/types/global/model/product/variation/product.variation.model"
 
-type ProductOptionsItemsProps = ProductIdType["productOptions"][0]["items"][0]
-type StockStatus = ProductOptionsItemsProps["stockStatus"]
+// export interface FieldsRefType {
+//   background: string
+//   name: string
+//   type: string
+//   value: string
+//   index: number
+//   stockStatus: ProductVariationModel["stockInfo"]
+// }
+
+// export interface SetTotalObjType {
+//   elemIdx: number
+//   index: number
+//   background: string,
+//   name: string, 
+//   type: string, 
+//   value: string
+//   stockStatus: boolean
+// }
 
 export interface FieldsRefType {
-  background: string
   name: string
-  type: string
   value: string
   index: number
-  stockStatus: StockStatus
+  stockStatus: ProductVariationModel["stockStatus"]
 }
 
 export interface SetTotalObjType {
   elemIdx: number
   index: number
-  background: string, 
   name: string, 
-  type: string, 
   value: string
   stockStatus: boolean
 }

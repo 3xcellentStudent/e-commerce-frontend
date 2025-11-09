@@ -1,6 +1,6 @@
 import { List } from "@mui/material"
 import UserReviewCard from "../UserReviewCard/UserReviewCard"
-import { ReviewsType } from "@/types/main/reviews.type"
+import { ReviewsType } from "@/types/global/model/reviews/reviews.type"
 
 export default function ReviewsList({reviewsList}: {reviewsList: ReviewsType[] | []}){
 

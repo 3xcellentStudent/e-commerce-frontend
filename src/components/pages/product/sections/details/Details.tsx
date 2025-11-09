@@ -1,12 +1,16 @@
 import './style.scss'
 import { SyntheticEvent } from 'react';
 import { useSelector } from 'react-redux';
-import { ProductDataType } from '@/types/main/productData.type';
 import VerticalTabsList from './parts/Tabs/VerticalTabsList';
+import { ProductFullModel } from '@/types/global/model/product/product.full.model';
 
-export default function Details(){
+interface Props {
+  specifications: ProductFullModel["specifications"]
+}
 
-  const {titles, properties} = useSelector(({productData: {specifications}}: {productData: ProductDataType}) => specifications)
+export default function Details({specifications}: Props){
+
+  // const {titles, properties} = useSelector(({productData: {specifications}}: {productData: ProductDataType}) => specifications)
 
   const listWrapCls = 'w-full flex justify-center items-start flex-wrap tablet:flex-col tablet:justify-center tablet:items-center'
 
@@ -18,7 +22,7 @@ export default function Details(){
   return(
     <section className='mt-24 px-5'>
       <div className={listWrapCls}>
-        <VerticalTabsList titles={titles} properties={properties} />
+        <VerticalTabsList specifications={specifications} />
       </div>
     </section>
   )

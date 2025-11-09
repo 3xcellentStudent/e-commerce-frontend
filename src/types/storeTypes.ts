@@ -1,10 +1,10 @@
 import { CartObjectType } from "./cartTypes/cartObject.types"
-import { ProductDataType } from "./main/productData.type"
+import { ProductGetRecursiveDto } from "./dto/mongodb/product/product.get.recursive.dto"
 import { ShippingAddressType } from "./payment/payment"
 
 export interface InitialState {
   cartObject: CartObjectType,
-  productData: ProductDataType,
+  productData: ProductGetRecursiveDto,
   shipping: ShippingAddressType,
   isOpenCart: boolean,
 }
@@ -25,7 +25,7 @@ export interface FieldItemType {
 export interface CartProduct {
   productName: string
   productId: string
-  productImg: ProductDataType["mediaContent"]["images"][0]
+  productImg: string
   quantity: number
   quantityMax: number
   price: string

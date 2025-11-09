@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import UserInformation from "./parts/UserInformation/UserInformation";
 import { GlobalDataType } from "@/types/main/globalData.type";
-import { ReviewsType } from "@/types/main/reviews.type";
+import { ReviewsType } from "@/types/global/model/reviews/reviews.type";
 import RatingComp from "@/components/pages/product/common/RatingComp/RatingComp";
 import styles from "./styles.module.scss"
 

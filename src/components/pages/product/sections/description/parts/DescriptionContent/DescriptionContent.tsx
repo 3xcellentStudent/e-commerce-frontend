@@ -1,5 +1,5 @@
 // import { ImagesArrayType } from "@/types/productPage.types/sectionDescr"
-import { useRef, useState} from 'react'
+// import { useRef, useState} from 'react'
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { Box, Typography } from "@mui/material";
@@ -16,7 +16,7 @@ interface Props {
 
 export default function DescriptionContent({descriptionVideo}: Props){
 
-  const carouselWrapRef = useRef<any>(null)
+  // const carouselWrapRef = useRef<any>(null)
 
   return(
     <Box className={`${styles.video_container}`}>

@@ -1,12 +1,11 @@
 export interface ProductVariationModel {
   id?: string;
   parentId: string;
-  stockInfo?: StockInfo;
+  stockInfo: StockInfo;
   variationName: string;
   productOptions?: ProductOption[];
   images?: string[];
   collectionName: string;
-  category: string;
   createdAt?: number;
   updatedAt?: number;
 }
@@ -32,6 +31,6 @@ export interface Item {
   value?: string;
   fill?: string;
   stroke?: string;
-  stockStatus?: boolean;
+  StockInfo?: boolean;
   mediaIndex?: number;
 }

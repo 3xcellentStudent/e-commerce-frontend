@@ -3,18 +3,25 @@ import PaginationComponent from './parts/PaginationComponent/PaginationComponent
 
 import styles from "./styles.module.scss"
 import ReviewAnalyticsPanel from './parts/ReviewAnalyticsPanel/ReviewAnalyticsPanel';
+import { ProductFullModel } from '@/types/global/model/product/product.full.model';
 
-export default function Reviews(){
+interface Props {
+  rating: ProductFullModel["rating"]
+  reviewsSnapshot: ProductFullModel["reviewsSnapshot"]
+  reviewsId: ProductFullModel["reviewsId"]
+}
+
+export default function Reviews({rating, reviewsSnapshot, reviewsId}: Props){
 
   return(
     <section className='mt-24 px-5'>
       <SectionTitle containerSx={{paddingBottom: "10px"}} >Customer Reviews</SectionTitle>
 
       <div className={`flex ${styles.main_container}`}>
-        <ReviewAnalyticsPanel/>
+        <ReviewAnalyticsPanel rating={rating} reviewsSnapshot={reviewsSnapshot} />
 
         <div className={`${styles.reviews_container}`}>
-          <PaginationComponent/>
+          <PaginationComponent reviewsId={reviewsId} />
         </div>
       </div>
 

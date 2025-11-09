@@ -5,13 +5,18 @@ import styles from "./styles.module.scss"
 import NextPlanIcon from '@mui/icons-material/NextPlan';
 import { Slider, Stack } from "@mui/material";
 import Scale from "./parts/Scale/Scale";
-import { ProductGetRecursiveDto } from "@/types/dto/mongodb/product/product.get.recursive.dto";
+import { ProductFullModel } from "@/types/global/model/product/product.full.model";
 
-export default function ReviewAnalyticsPanel(){
+interface Props {
+  reviewsSnapshot: ProductFullModel["reviewsSnapshot"];
+  rating: ProductFullModel["rating"];
+}
 
-  const {productVariations, reviewsSnapshot, rating} = useSelector(({
-    productData: {productVariations, rating, reviewsSnapshot}
-  }: {productData: ProductGetRecursiveDto}) => ({productVariations, rating, reviewsSnapshot}))
+export default function ReviewAnalyticsPanel({reviewsSnapshot, rating}: Props){
+
+  // const {productVariations, reviewsSnapshot, rating} = useSelector(({
+  //   productData: {productVariations, rating, reviewsSnapshot}
+  // }: {productData: ProductFullModel}) => ({productVariations, rating, reviewsSnapshot}))
 
   return(
     <div className={`flex sticky ${styles.container}`}>
