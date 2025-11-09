@@ -24,7 +24,7 @@ const CustomBadge = styled(Badge)(() => ({
 
 export default function BadgeButton({className, children}: Props){
 
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
 
   // const {cart: {length}} = useSelector(({cartObject}: {cartObject: CartObjectType}) => cartObject)
 
@@ -33,7 +33,7 @@ export default function BadgeButton({className, children}: Props){
   // }: {globalData: GlobalDataType}) => ({...backgrounds, ...text}))
 
   function handleClick(){
-    dispatch(actionCallCartState({type: CART_IS_OPEN_SAVE_CONST, payload: null}))
+    // dispatch(actionCallCartState({type: CART_IS_OPEN_SAVE_CONST, payload: null}))
   }
 
   return(

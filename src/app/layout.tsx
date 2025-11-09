@@ -8,7 +8,7 @@ import localFont from "next/font/local"
 import {ThemeProvider, createTheme} from '@mui/material'
 
 import {Provider} from 'react-redux'
-import store from '@/redux/store'
+// import store from '@/redux/store'
 import { ReactNode } from 'react'
 
 // export const metadata: Metadata = {
@@ -35,13 +35,13 @@ export default function RootLayout({children}: {children: ReactNode}){
 
   return (
     <html className={`${inter.variable} ${mollie.variable}`} lang="en">
-      <Provider store={store}>
+      {/* <Provider store={store}> */}
         <ThemeProvider theme={theme}>
           {/* <body className={roboto.className}> */}
             {children}
           {/* </body> */}
         </ThemeProvider>
-      </Provider>
+      {/* </Provider> */}
     </html>
   )
 }

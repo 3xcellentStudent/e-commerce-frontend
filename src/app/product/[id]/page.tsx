@@ -8,6 +8,7 @@ import { ProductFullModel } from "@/types/global/model/product/product.full.mode
 import styles from "./styles.module.scss"
 import ProductApi from "@/api/database/product/product.api"
 import ReduxProvider from "@/components/common/Redux/ReduxProvider"
+import StoreProvider from "./StoreProvider"
 
 
 interface Props {
@@ -39,11 +40,11 @@ export default async function Page({
       <Description mediaContent={mediaContent} presentable={descriptions.presentable} />
       <Details specifications={specifications} />
       <Reviews rating={rating} reviewsSnapshot={reviewsSnapshot} reviewsId={reviewsId} />
-      <ReduxProvider>
+      <StoreProvider>
         <DrawerComponent anchor='right'>
           <CartList />
         </DrawerComponent>
-      </ReduxProvider>
+      </StoreProvider>
     </main>
   )
 
