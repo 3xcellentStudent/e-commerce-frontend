@@ -2,70 +2,72 @@
 
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect, useRef } from "react"
-import { Box, List, ListItem, Tooltip } from '@mui/material'
+// import { Box, List, ListItem, Tooltip } from '@mui/material'
 import Title from "./parts/Title/Title"
 import ViewCartButton from "./parts/ViewCartButton/ViewCartButton"
 import { usePathname } from "next/navigation"
 import { CartObjectType } from "@/types/cartTypes/cartObject.types"
 import styles from "./styles.module.scss"
 import Quantity from "../Quantity/Quantity"
-import {HighlightOff} from '@mui/icons-material';
 import InternalCircleSVG from "../Radio/InternalCircleSVG"
 import { GlobalDataType } from "@/types/main/globalData.type"
-import { CART_CHANGE_QUANTITY_SAVE_CONST, CART_DELETE_ITEM_SAVE_CONST } from "@/redux/cart/constants"
-import { actionCallCartState } from "@/redux/cart/actions"
 import { ProductFullModel } from "@/types/global/model/product/product.full.model"
+import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks"
+import {add, remove} from "@/lib/redux/cart/reducers"
+import { ProductVariationModel } from "@/types/global/model/product/variation/product.variation.model"
 
 
 export default function CartList(){
 
-  const {cart, response} = useSelector(({
-    cartObject
-  }: {productData: ProductFullModel, cartObject: CartObjectType}) => ({...cartObject}))
+  // const {cart, response} = useSelector(({
+  //   cartObject
+  // }: {productData: ProductFullModel, cartObject: CartObjectType}) => ({...cartObject}))
 
-  const pathname = usePathname()
-  const dispatch = useDispatch()
+  // const pathname = usePathname()
+  // const dispatch = useDispatch()
+
+  const dispatch = useAppDispatch();
+
+  const cart = useAppSelector(state => state.cart)
 
   const itemRef = useRef(null)
 
   function deleteHandleClick(index: number){
-    dispatch(actionCallCartState({type: CART_DELETE_ITEM_SAVE_CONST, payload: index}))
+    dispatch(remove(index))
   }
 
   function dispatchQuantity(quantity: number, index: number){
     const payload = {quantity: +quantity, index}
-    dispatch(actionCallCartState({type: CART_CHANGE_QUANTITY_SAVE_CONST, payload}))
+    // dispatch(actionCallCartState({type: CART_CHANGE_QUANTITY_SAVE_CONST, payload}))
   }
 
   return(
     <div className="h-full">
-      <List className={`${styles.list} py-4 h-[calc(100%-49px)] overflow-y-auto relative backdrop-blur-xl`}>
+      <ul className={`${styles.list} py-4 h-[calc(100%-49px)] overflow-y-auto relative backdrop-blur-xl`}>
         {
           cart?.length ? (
-            cart?.map((obj, index) => {
+            cart?.map((product, index) => {
 
-              const {
-                productName, productImg, productId, quantity, fields, checked, price
-              } = obj
+              // const {} = obj
 
               return(
-                  <ListItem ref={itemRef} key={index} 
+                  <li ref={itemRef} key={index} 
                   className={`w-[calc(100%-16px)] rounded-xl flex flex-row justify-between items-center m-2 p-2 pr-4 ${styles.container}`}>
                     
                     <div className="flex flex-row h-full">
                       <div className={`relative h-full ${styles.image_container}`}>
-                        <img className="absolute w-full h-full object-scale-down" src={productImg} alt="logo" />
+                        <img className="absolute w-full h-full object-scale-down" src={""} alt="logo" />
                       </div>
 
                       <div className="h-full p-2 border-stone-500 border-r-[1px]">
-                        <Title productId={productId} productName={productName} />
+                        <Title productId={product.parentId} productName={product.productName} />
 
                         <div className="h-[50%] flex items-end">
-                          <div className="w-full w-min font-bold">${price}</div>
+                          <div className="w-full w-min font-bold">${product.price}</div>
                         </div>
                       </div>
 
-                      <div className="h-full px-2 flex items-center">
+                      {/* <div className="h-full px-2 flex items-center">
                         <ul className="flex flex-row" key={index} >
                           {fields.map(({value, background}, idx) => {
                             if(idx === fields.length - 1){
@@ -80,18 +82,18 @@ export default function CartList(){
                             else return <li key={idx} >{value}</li>;
                           })}
                         </ul>
-                      </div>
+                      </div> */}
                     </div>
 
 
                     <div className="flex flex-row w-min justify-between items-center">
-                      <Quantity inputProps={{disabled: true}} elemIndex={index} action={dispatchQuantity} btnSize={24} quantity={quantity} />
+                      <Quantity inputProps={{disabled: true}} elemIndex={index} action={dispatchQuantity} btnSize={24} quantity={product.quantity} />
                       
                       <div className="ml-4">
-                        <button onClick={() => deleteHandleClick(index)} ><HighlightOff/></button>
+                        <button onClick={() => deleteHandleClick(index)} ></button>
                       </div>
                     </div>
-                  </ListItem>
+                  </li>
               )
             })
           ) : 
@@ -100,7 +102,7 @@ export default function CartList(){
           </li>
         }
         {cart.length > 0 && <ViewCartButton/>}
-      </List>
+      </ul>
 
     </div>
   )

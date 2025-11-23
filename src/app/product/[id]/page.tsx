@@ -40,11 +40,11 @@ export default async function Page({
       <Description mediaContent={mediaContent} presentable={descriptions.presentable} />
       <Details specifications={specifications} />
       <Reviews rating={rating} reviewsSnapshot={reviewsSnapshot} reviewsId={reviewsId} />
-      <StoreProvider>
+      {/* <StoreProvider>
         <DrawerComponent anchor='right'>
           <CartList />
         </DrawerComponent>
-      </StoreProvider>
+      </StoreProvider> */}
     </main>
   )
 

@@ -1,15 +1,16 @@
-'use client'
-
 import './globals.css'
 import '../../public/styles/index.scss'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import localFont from "next/font/local"
-import {ThemeProvider, createTheme} from '@mui/material'
 
 import {Provider} from 'react-redux'
 // import store from '@/redux/store'
 import { ReactNode } from 'react'
+import StoreProvider from './product/[id]/StoreProvider'
+import DrawerComponent from '@/components/common/DrawerComponent/DrawerComponent'
+import CartList from '@/components/common/CartList/CartList'
+import Snackbar from '@/components/common/Snackbar/Snackbar'
 
 // export const metadata: Metadata = {
 //   title: 'Create Next App',
@@ -21,13 +22,13 @@ const mollie = localFont({
   variable: "--font-mollie"
 })
 
-const theme = createTheme({
-  palette: {
-    primary: {main: '#000'},
-    secondary: {main: '#000'},
-    success: {main: '#10b981'}
-  }
-})
+// const theme = createTheme({
+//   palette: {
+//     primary: {main: '#000'},
+//     secondary: {main: '#000'},
+//     success: {main: '#10b981'}
+//   }
+// })
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 
@@ -36,11 +37,20 @@ export default function RootLayout({children}: {children: ReactNode}){
   return (
     <html className={`${inter.variable} ${mollie.variable}`} lang="en">
       {/* <Provider store={store}> */}
-        <ThemeProvider theme={theme}>
+        {/* <ThemeProvider theme={theme}> */}
           {/* <body className={roboto.className}> */}
-            {children}
+          <body className='relative'>
+            <StoreProvider>
+              {children}
+              <DrawerComponent anchor='right'>
+                <CartList />
+              </DrawerComponent>
+              <Snackbar/>
+            </StoreProvider>
+
+          </body>
           {/* </body> */}
-        </ThemeProvider>
+        {/* </ThemeProvider> */}
       {/* </Provider> */}
     </html>
   )

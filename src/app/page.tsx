@@ -9,6 +9,10 @@ import styles from "./styles.module.scss"
 import CatalogSection from '@/components/pages/main/catalog/CatalogSection'
 import CurvyLinesSVG from '@/components/SVG/curvyLines/CurvyLinesSVG'
 import AboutUs from '@/components/pages/main/about/AboutUs'
+import StoreProvider from './product/[id]/StoreProvider'
+import DrawerComponent from '@/components/common/DrawerComponent/DrawerComponent'
+import CartList from '@/components/common/CartList/CartList'
+import Snackbar from '@/components/common/Snackbar/Snackbar'
 
 export default function Home(){
 
@@ -27,6 +31,14 @@ export default function Home(){
       <footer></footer>
 
       <CurvyLinesSVG className="-z-1 absolute top-0 left-0 h-[100vh* (1vw + 1vh)] w-[100vw] min-w-[1810px]" />
+
+      {/* <StoreProvider>
+        <DrawerComponent anchor='right'>
+          <CartList />
+        </DrawerComponent>
+      </StoreProvider>
+
+      <Snackbar/> */}
     </body>
   )
 }

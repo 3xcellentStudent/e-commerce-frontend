@@ -1,4 +1,3 @@
-import { Box, Typography } from '@mui/material'
 import styles from "./styles.module.scss";
 import Purchase from './parts/PurchaseOverviewComponent/Purchase';
 import BigSlider from './parts/CarouselOverviewComponent/BigCarousel/BigCarousel';
@@ -9,7 +8,7 @@ import PurchaseOverviewComponent from './parts/PurchaseOverviewComponent/Purchas
 import { ProductFullModel } from '@/types/global/model/product/product.full.model';
 
 export default function Overview({
-  props: {descriptions, id: productId, reviewsSnapshot: {total: countOfReviews}, productName, collectionName, rating}
+  props: {descriptions, productVariations, id: parentId, reviewsSnapshot: {total: countOfReviews}, productName, collectionName, rating}
 }: {props: ProductFullModel}){
 
   // const [carouselIndex, setCarouselIndex] = useState<number>(0)
@@ -17,13 +16,13 @@ export default function Overview({
   return(
     <section className='styles.section'>
       <div className={`${styles.wrapper}`}>
-        <Box className={`w-[50%] ${styles.slider_container}`} >
+        <div className={`w-[50%] ${styles.slider_container}`} >
           <div className='w-full flex flex-row' >
             {/* <SmallSlider carouselIndex={carouselIndex} setCarouselIndex={setCarouselIndex} />
             <BigSlider carouselIndex={carouselIndex} setCarouselIndex={setCarouselIndex} /> */}
           </div>
-        </Box>
-        <PurchaseOverviewComponent props={{descriptions, productId, countOfReviews, productName, rating, price: "0.0", collectionName}} />
+        </div>
+        <PurchaseOverviewComponent props={{descriptions, productVariations, parentId, countOfReviews, productName, rating, price: "0.0", collectionName}} />
       </div>
     </section>
     // <Typography component="section" sx={{

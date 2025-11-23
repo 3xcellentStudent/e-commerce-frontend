@@ -1,9 +1,6 @@
 import { GlobalDataType } from '@/types/main/globalData.type';
-import {Rating, Stack, Typography} from '@mui/material';
 // import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import StarRoundedIcon from '@mui/icons-material/StarRounded';
-import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded';
 
 interface Props {
   rating: string
@@ -31,13 +28,13 @@ export default function RatingComp({rating, content, iconSize: fontSize}: Props)
 
   return (
     <div className="h-min flex items-center">
-      <Stack>
+      {/* <Stack>
         <Rating value={+rating} precision={0.1} readOnly
         icon={<StarRoundedIcon sx={{fontSize, color: "#000", stroke: "#fff"}} />} 
         emptyIcon={<StarBorderRoundedIcon sx={{fontSize, color: "#000", stroke: "#fff"}} />} 
         />
       </Stack>
-      <Typography className='ml-2.5 whitespace-nowrap text-xl' sx={{color: "#ccc"}} component="span">{content}</Typography>
+      <Typography className='ml-2.5 whitespace-nowrap text-xl' sx={{color: "#ccc"}} component="span">{content}</Typography> */}
     </div>
   )
 }

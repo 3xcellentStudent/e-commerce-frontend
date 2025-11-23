@@ -7,19 +7,19 @@ import { GlobalDataType } from "@/types/main/globalData.type";
 
 export default function ViewCartButton(){
 
-  const {elementsPrimaryBg, secondaryText} = useSelector(({
-    globalData: {colors: {backgrounds, text}}
-  }: {globalData: GlobalDataType}) => ({...backgrounds, ...text}))
+  // const {elementsPrimaryBg, secondaryText} = useSelector(({
+  //   globalData: {colors: {backgrounds, text}}
+  // }: {globalData: GlobalDataType}) => ({...backgrounds, ...text}))
 
   return(
     <div className={`${styles.button_container} fixed w-full right-0 
       bottom-0`}>
-        <Link href="/cart" className="flex items-center justify-center h-full">
+        {/* <Link href="/cart" className="flex items-center justify-center h-full">
           <Button className={styles.button} disabled={false} 
           sx={{backgroundColor: elementsPrimaryBg.hex, color: secondaryText.hex}}>
             <span className="relative z-10">View Cart</span>
           </Button>
-        </Link>
+        </Link> */}
       </div>
   )
 }

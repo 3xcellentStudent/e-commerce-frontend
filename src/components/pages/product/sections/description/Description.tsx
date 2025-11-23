@@ -1,7 +1,6 @@
 import DescriptionContent from './parts/DescriptionContent/DescriptionContent'
 import DescriptionText from './parts/DescriptionText/DescriptionText'
 import { useSelector } from 'react-redux'
-import { Typography } from '@mui/material'
 // import { ProductDataType } from '@/types/main/productData.type'
 import SectionTitle from '@/components/common/SectionTitle/SectionTitle'
 import styles from "./styles.module.scss"

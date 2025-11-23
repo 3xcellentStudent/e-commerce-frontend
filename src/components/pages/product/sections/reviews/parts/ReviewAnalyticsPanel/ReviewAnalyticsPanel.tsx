@@ -2,8 +2,6 @@ import RatingComp from "@/components/pages/product/common/RatingComp/RatingComp"
 import { GlobalDataType } from "@/types/main/globalData.type";
 import { useSelector } from "react-redux";
 import styles from "./styles.module.scss"
-import NextPlanIcon from '@mui/icons-material/NextPlan';
-import { Slider, Stack } from "@mui/material";
 import Scale from "./parts/Scale/Scale";
 import { ProductFullModel } from "@/types/global/model/product/product.full.model";
 
@@ -43,13 +41,13 @@ export default function ReviewAnalyticsPanel({reviewsSnapshot, rating}: Props){
           </div>
         </div>
 
-        <Stack>
+        {/* <Stack>
           <Scale rating={5} value={reviewsSnapshot.five} max={reviewsSnapshot.total} />
           <Scale rating={4} value={reviewsSnapshot.four} max={reviewsSnapshot.total} />
           <Scale rating={3} value={reviewsSnapshot.three} max={reviewsSnapshot.total} />
           <Scale rating={2} value={reviewsSnapshot.two} max={reviewsSnapshot.total} />
           <Scale rating={1} value={reviewsSnapshot.one} max={reviewsSnapshot.total} />
-        </Stack>
+        </Stack> */}
       </div>
     </div>
   )

@@ -1,6 +1,5 @@
 'use client'
 
-import {Box, styled, Typography} from '@mui/material';
 import styles from "./styles.module.scss"
 import { useSelector } from 'react-redux';
 import { usePathname, useParams } from 'next/navigation';
@@ -10,10 +9,9 @@ import { GlobalDataType } from '@/types/main/globalData.type';
 import BasicSpeedDial from '../BasicSpeedDial/BasicSpeedDial';
 import Link from 'next/link';
 import navigationData from "@/data.models/navigation.json"
-import LocalMallIcon from '@mui/icons-material/LocalMall';
-import PersonIcon from '@mui/icons-material/Person';
+import styled from "styled-components";
 
-const CustomHeader = styled("header")({});
+const CustomHeader = styled("header")``;
 
 export default function Header(){
 
@@ -69,9 +67,8 @@ export default function Header(){
       "&:hover": {opacity: 1, color: secondaryText.hex},
     }}> */}
       <div className={`${styles.container}`}>
-        <Box className='w-6/12 flex items-center justify-between pl-6' >
-          <Typography className='w-min' variant="h4" noWrap component="h1"
-            sx={{display: { xs: 'none', sm: 'block' }, }}>My Store</Typography>
+        <div className='w-6/12 flex items-center justify-between pl-6' >
+          <h4 className='w-min whitespace-nowrap block'>My Store</h4>
 
           <nav className='flex flex-row items-center ml-4'>
             {navigationData.map((item, index) => {
@@ -83,23 +80,22 @@ export default function Header(){
               )
             })}
           </nav>
-        </Box>
+        </div>
 
         {/* <BasicSpeedDial direction="right" speedDialProps={{className: `absolute`}} /> */}
 
-        <Box className="w-min flex items-center pl-8 pr-6" 
-        sx={{borderColor: headerState ? "transparent" : "#ccc"}}>
+        <div className={`w-min flex items-center pl-8 pr-6 ${headerState ? "transparent" : "#ccc"}`}>
         {/* sx={{borderColor: headerState ? "transparent" : secondaryBg.hex,}}> */}
           {!pathname.includes("purchase") && 
           <>
-            <BadgeButton className='text-brown-dark bg-light-warm rounded-full p-2 hover:bg-brown-dark hover:text-white mr-4'>
+            {/* <BadgeButton className='text-brown-dark bg-light-warm rounded-full p-2 hover:bg-brown-dark hover:text-white mr-4'>
               <PersonIcon sx={{width: "28px", height: "28px"}}/>
             </BadgeButton>
             <BadgeButton className='text-brown-dark bg-light-warm rounded-full p-2 hover:bg-brown-dark hover:text-white'>
               <LocalMallIcon className='' sx={{width: "28px", height: "28px"}} />
-            </BadgeButton>
+            </BadgeButton> */}
           </>}
-        </Box>
+        </div>
       </div>
       {/* <Box className={`${styles.bottom_line}`}></Box> */}
     </CustomHeader>

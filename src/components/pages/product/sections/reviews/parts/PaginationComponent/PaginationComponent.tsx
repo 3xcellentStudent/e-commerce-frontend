@@ -1,7 +1,5 @@
 'use client'
 
-import Pagination from '@mui/material/Pagination';
-import Stack from '@mui/material/Stack';
 import { useSelector } from 'react-redux';
 import ReviewsList from '../ReviewsList/ReviewsList';
 // import { useEffect, useRef, useState } from 'react';
@@ -39,15 +37,16 @@ export default function PaginationComponent({reviewsId}: Props) {
   }
 
   return (
-    <Stack spacing={2}>
-      {/* <div ref={sectionRef}></div> */}
-      {/* <ReviewsList reviewsList={reviewsList} /> */}
-      <Pagination count={
-        reviewsId?.length < 10 ? 1 : 
-        Math.round(reviewsId?.length / 10) * 10 < reviewsId?.length ? Math.round(reviewsId?.length / 10) + 1 : 
-        Math.round(reviewsId?.length / 10)
-      } 
-      onChange={handleChange} />
-    </Stack>
+    // <Stack spacing={2}>
+    //   {/* <div ref={sectionRef}></div> */}
+    //   {/* <ReviewsList reviewsList={reviewsList} /> */}
+    //   <Pagination count={
+    //     reviewsId?.length < 10 ? 1 : 
+    //     Math.round(reviewsId?.length / 10) * 10 < reviewsId?.length ? Math.round(reviewsId?.length / 10) + 1 : 
+    //     Math.round(reviewsId?.length / 10)
+    //   } 
+    //   onChange={handleChange} />
+    // </Stack>
+    <div></div>
   );
 }

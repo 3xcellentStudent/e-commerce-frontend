@@ -1,8 +1,5 @@
 // import { ImagesArrayType } from "@/types/productPage.types/sectionDescr"
 // import { useRef, useState} from 'react'
-import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import { Box, Typography } from "@mui/material";
 import Button from "@/components/common/Buttons/Button";
 import Link from "next/link";
 import { decrement, increment } from "./actions/PositionActions";
@@ -19,12 +16,12 @@ export default function DescriptionContent({descriptionVideo}: Props){
   // const carouselWrapRef = useRef<any>(null)
 
   return(
-    <Box className={`${styles.video_container}`}>
+    <div className={`${styles.video_container}`}>
       <div className={`${styles.video_wrapper}`}>
         <video className={`${styles.player}`} muted autoPlay loop
         src={descriptionVideo}></video>
       </div>
-    </Box>
+    </div>
 
     // <Typography component="div" ref={carouselWrapRef}
     // className="carousel relative w-[55%] overflow-hidden flex items-center mx-auto">

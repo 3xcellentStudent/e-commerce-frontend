@@ -1,11 +1,9 @@
-import { Badge, styled} from "@mui/material"
+// import { Badge, styled} from "@mui/material"
 import { ReactNode } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { CartObjectType } from "@/types/cartTypes/cartObject.types"
 
-import { actionCallCartState } from "@/redux/cart/actions"
 import { GlobalDataType } from "@/types/main/globalData.type"
-import { CALL_CART_STATE_CONST, CART_IS_OPEN_SAVE_CONST } from "@/redux/cart/constants"
 
 interface Props {
   className?: string
@@ -15,12 +13,12 @@ interface Props {
 // interface CustomBadgeThemeType {color: string, backgroundcolor: string}
 
 // const CustomBadge = styled(Badge)(({backgroundcolor, color}: CustomBadgeThemeType) => ({
-const CustomBadge = styled(Badge)(() => ({
-  "& .MuiBadge-badge": {
-    // backgroundColor: backgroundcolor,
-    // color: color,
-  },
-}));
+// const CustomBadge = styled(Badge)(() => ({
+//   "& .MuiBadge-badge": {
+//     // backgroundColor: backgroundcolor,
+//     // color: color,
+//   },
+// }));
 
 export default function BadgeButton({className, children}: Props){
 
@@ -38,10 +36,10 @@ export default function BadgeButton({className, children}: Props){
 
   return(
     <button onClick={handleClick}>
-      <CustomBadge className={className} 
+      {/* <CustomBadge className={className} 
       badgeContent={length}>
         {children}
-      </CustomBadge>
+      </CustomBadge> */}
     </button>
   )
 }

@@ -6,20 +6,25 @@ import styles from "./styles.module.scss"
 import AddCartComp from "./parts/AddCartComp/AddCartComp";
 import { ProductFullModel } from "@/types/global/model/product/product.full.model";
 import { ProductVariationModel } from "@/types/global/model/product/variation/product.variation.model";
+import StoreProvider from "@/app/product/[id]/StoreProvider";
+import { CartStateType } from "@/lib/redux/cart/types";
 
 interface Props {
-  productId: string
+  parentId: string
   descriptions: ProductFullModel["descriptions"]
   countOfReviews: ProductFullModel["reviewsSnapshot"]["total"];
   productName: ProductFullModel["productName"];
   collectionName: ProductFullModel["collectionName"];
   rating: ProductFullModel["rating"];
   price: ProductVariationModel["stockInfo"]["price"]
+  productVariations: ProductVariationModel[]
 }
 
-export default function PurchaseOverviewComponent({
-  props: {descriptions, productId, ...remains}
-}: {props: Props}){
+export default function PurchaseOverviewComponent({props}: {props: Props}){
+
+  const {} = props;
+
+  const cartObject: CartStateType = {}
 
   // const [inStockStatus, setInstockStatus] = useState<boolean>(true)
 
@@ -48,7 +53,7 @@ export default function PurchaseOverviewComponent({
   return(
     <div className={`${styles.container}`}>
       <div>
-        <TitleComp props={remains} />
+        <TitleComp props={props} />
 
         {/* <SelectionComp carouselState={carouselState} setTotalObj={setTotalObj} /> */}
       </div>
@@ -73,10 +78,17 @@ export default function PurchaseOverviewComponent({
         } */}
       </div>
 
+      {/* <AddCartComp props={() => {
+        const {countOfReviews, descriptions, productVariations, ...remains} = props;
+        const variationId = productVariations[0].
+      }} /> */}
+      {/* <StoreProvider> */}
+        <AddCartComp {...props.productVariations[0]} />
+      {/* </StoreProvider> */}
       {/* <AddCartComp inStockStatus={inStockStatus} action={dispatchToCart} /> */}
 
-      <p className="text-lg mt-10">{descriptions.summary}</p>
-      {descriptions.presentable.map((string, index) => <p key={index} className="text-lg mt-10">{string}</p>)}
+      <p className="text-lg mt-10">{props.descriptions.summary}</p>
+      {props.descriptions.presentable.map((string, index) => <p key={index} className="text-lg mt-10">{string}</p>)}
     </div>
   )
 }

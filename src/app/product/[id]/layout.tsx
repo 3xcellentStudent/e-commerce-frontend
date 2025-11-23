@@ -99,12 +99,12 @@ export default async function RootLayout({children, params: {id}}: Props){
         <title>{productState.title}</title>
       </head> */}
       {/* <Box component="body" sx={{backgroundColor: themeState.colors.backgrounds.primaryBg.hex, color: themeState.colors.text.primaryText.hex}} sx={{backgroundColor: themeState.colors.backgrounds.primaryBg.hex, color: themeState.colors.text.primaryText.hex}}> */}
-      <body>
+      {/* <body> */}
         {/* <SnackbarProvider maxSnack={3}> */}
           <Header/>
           {children}
         {/* </SnackbarProvider> */}
-      </body>
+      {/* </body> */}
       {/* </Box> */}
     </>
   )

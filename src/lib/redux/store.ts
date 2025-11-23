@@ -1,8 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
+import cartReducer from './cart/reducers'
+import snackbarReducer from './snackbar/reducers'
 
 export const makeStore = () => {
   return configureStore({
-    reducer: {}
+    reducer: {
+      cart: cartReducer,
+      snackbar: snackbarReducer,
+    }
   })
 }
 

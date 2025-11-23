@@ -1,6 +1,9 @@
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
+  safelist: [
+    'bg-severity-info', 'bg-severity-error', 'bg-severity-warning', 'bg-severity-success',
+  ],
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -31,6 +34,11 @@ const config: Config = {
         'green': "#7C8F5A",
         'green-dark': "#6F7D4E",
         'menthol': "#8D9E75",
+
+        'severity-info': "#0096FF",
+        'severity-error': "#EE4B2B",
+        'severity-warning': "#FFEA00",
+        'severity-success': "#50C878",
 
         'light-rgb': "245, 235, 215",
         'light-warm-rgb': "234, 215, 177",
