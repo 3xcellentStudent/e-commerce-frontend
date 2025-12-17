@@ -58,8 +58,14 @@ body {
   src: url("/fonts/mollie/mollie_glaston.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
-}
-
-body {
-  font-family: "Mollie", sans-serif;
 } */
+
+.top_section {
+  position: relative;
+  padding-top: 7rem;
+  height: calc(100svh + 4rem);
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  width: 100svw;
+}

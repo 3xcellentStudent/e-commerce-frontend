@@ -1,18 +1,23 @@
 export interface ProductVariationModel {
-  id?: string;
+  id: string;
   parentId: string;
   stockInfo: StockInfo;
   variationName: string;
-  productOptions?: ProductOption[];
-  images?: string[];
+  productOptions: ProductOption[];
+  image: Image[]; 
   collectionName: string;
   createdAt?: number;
   updatedAt?: number;
 }
 
+export interface Image {
+  media: string;
+  src: string;
+}
+
 export interface Descriptions {
-  summary?: string;
-  presentable?: string[];
+  summary: string;
+  presentable: string[];
 }
 
 export interface StockInfo {

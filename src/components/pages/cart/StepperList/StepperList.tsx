@@ -8,7 +8,7 @@ import ButtonCircleArrow from '@/components/common/Buttons/ButtonCircleArrow';
 // import ShippingForm from './components/ShippingForm/ShippingForm';
 import styles from "./styles.module.scss"
 import ShippingInfo from './components/AdditionalInfo/ShippingInfo';
-import StripePayment from './components/StripePayment/StripePayment';
+import StripePayment from '../../../common/StripePayment/StripePayment';
 
 
 export default function StepperList(){

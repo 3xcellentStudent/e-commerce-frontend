@@ -27,7 +27,6 @@ export default function Snackbar(){
         : [...prev, snack]
       );
     }
-    console.log(snack)
   }, [snack.id]), [snack.id])
 
   const closeSnackbar = useCallback((id: string) => {

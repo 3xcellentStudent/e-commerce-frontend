@@ -3,7 +3,6 @@ import { EmbeddedCheckout, EmbeddedCheckoutProvider } from "@stripe/react-stripe
 import { loadStripe } from "@stripe/stripe-js";
 import { useEffect, useState } from "react";
 import styles from "./styles.module.scss"
-import { Backdrop, CircularProgress } from "@mui/material";
 import StripeApi from "@/api/stripe/checkout";
 import ProductOptionsDto from "@/api/stripe/dto/ProductOptionsDto";
 import { useSelector } from "react-redux";
@@ -74,10 +73,10 @@ export default function StripePayment(){
             <EmbeddedCheckoutProvider stripe={stripePromise} options={{clientSecret}}>
               <EmbeddedCheckout />
             </EmbeddedCheckoutProvider>
-          </div> : 
-          <Backdrop sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })} open>
-            <CircularProgress color="inherit" />
-          </Backdrop>
+          </div> : <div></div>
+          // <Backdrop sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })} open>
+          //   <CircularProgress color="inherit" />
+          // </Backdrop>
         }
       </div>
     </section>

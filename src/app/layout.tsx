@@ -7,7 +7,7 @@ import localFont from "next/font/local"
 import {Provider} from 'react-redux'
 // import store from '@/redux/store'
 import { ReactNode } from 'react'
-import StoreProvider from './product/[id]/StoreProvider'
+import StoreProvider from '../components/common/redux/StoreProvider/StoreProvider'
 import DrawerComponent from '@/components/common/DrawerComponent/DrawerComponent'
 import CartList from '@/components/common/CartList/CartList'
 import Snackbar from '@/components/common/Snackbar/Snackbar'
@@ -39,7 +39,7 @@ export default function RootLayout({children}: {children: ReactNode}){
       {/* <Provider store={store}> */}
         {/* <ThemeProvider theme={theme}> */}
           {/* <body className={roboto.className}> */}
-          <body className='relative'>
+          <body className='relative overflow-x-hidden'>
             <StoreProvider>
               {children}
               <DrawerComponent anchor='right'>

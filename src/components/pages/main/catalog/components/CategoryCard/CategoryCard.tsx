@@ -1,7 +1,5 @@
 'use client';
 
-import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
-import LaunchIcon from '@mui/icons-material/Launch';
 import { Fragment } from 'react';
 import styles from './styles.module.scss';
 
@@ -42,7 +40,7 @@ export default function CategoryCard({images, text, tailwindStyles}: Props){
       <h5 className={`${styles.title} pointer-events-none relative w-full flex text-center ${tailwindStyles.title}`}>
         <div className={styles.title_text}>
           {text.title}
-          <LaunchIcon sx={{width: "1rem", height: "1rem"}} className={`${styles.icon} absolute duration-400 text-white z-[1]`} />
+          {/* <LaunchIcon sx={{width: "1rem", height: "1rem"}} className={`${styles.icon} absolute duration-400 text-white z-[1]`} /> */}
         </div>
       </h5>
       <div className={`${styles.description} pointer-events-none absolute w-full z-1 ${tailwindStyles.description}`}>{text.description}</div>

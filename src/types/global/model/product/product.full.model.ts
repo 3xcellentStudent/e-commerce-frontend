@@ -1,16 +1,15 @@
-import { ProductVariationModel } from "@/types/global/model/product/variation/product.variation.model";
+import { ProductVariationModel } from "./variation/product.variation.model";
 
 export interface ProductFullModel {
   id: string;
   reviewsId: string[];
-  mediaId: string;
   productVariationsId: string[];
-  rating: string | null;
+  rating: number;
   productName: string;
   descriptions: ProductDescriptions;
   productVariations: ProductVariationModel[];
   specifications: ProductSpecifications;
-  mediaContent: MediaModel | null;
+  mediaContent: MediaContent[];
   reviewsSnapshot: ReviewsSnapshot;
   collectionName: string;
   createdAt: number;
@@ -22,9 +21,12 @@ export interface ProductDescriptions {
   presentable: string[];
 }
 
-export interface MediaModel {
-  titleContent: MediaTitleContent;
-  images: MediaImage[][];
+export interface MediaContent {
+  isImage: boolean;
+  mediaArray: {
+    media: string;
+    src: string;
+  }[];
 }
 
 export interface MediaTitleContent {

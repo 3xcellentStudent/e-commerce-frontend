@@ -30,3 +30,56 @@
     border: 2px solid #d6aaac;
   }
 }
+
+.descriptions {
+
+  &_summary {
+    // font-family: var(--font-mollie);
+  }
+}
+
+.button {
+  &_add_to_cart, &_buy_now {
+    border-radius: .25rem;
+    font-size: 1.25rem;
+    transition: .2s ease-in-out;
+  }
+
+  &_add_to_cart {
+    padding: .5rem 1.5rem;
+  
+    &:hover {
+      padding: .5rem 4rem .5rem 1.5rem;
+    }
+  }
+
+  &_buy_now {
+    padding: .5rem 1.5rem;
+    
+    &:hover {
+      padding: .5rem 4rem .5rem 1.5rem;
+    }
+  }
+}
+
+// .add_to_cart_button, .buy_now_button {
+//   border-radius: .25rem;
+//   font-size: 1.25rem;
+//   transition: .2s ease-in-out;
+// }
+
+// .add_to_cart_button {
+//   padding: .5rem 1.5rem;
+  
+//   &:hover {
+//     padding: .5rem 4rem .5rem 1.5rem;
+//   }
+// }
+
+// .buy_now_button {
+//   padding: .5rem 1.5rem;
+  
+//   &:hover {
+//     padding: .5rem 4rem .5rem 1.5rem;
+//   }
+// }

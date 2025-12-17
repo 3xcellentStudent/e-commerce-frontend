@@ -11,9 +11,7 @@ interface Props {
   price: ProductVariationModel["stockInfo"]["price"]
 }
 
-export default function TitleComp({
-  props: {collectionName, countOfReviews, productName, rating, price}
-}: {props: Props}){
+export default function TitleComp({collectionName, countOfReviews, productName, rating, price}: Props){
 
   // const {category, title, rating, price, countOfReviews} = useSelector(({
   //   productData: {title, rating, stockInfo}

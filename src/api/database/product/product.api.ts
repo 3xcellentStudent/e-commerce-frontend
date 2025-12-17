@@ -44,10 +44,12 @@ export default class ProductApi {
 
   public static async getOneByIdRecursive(id: string, collectionName: string){
     try {
-      const url = process.env.SERVER_ROUTE + process.env.PRODUCT_GET_RECURSIVE_ROUTE + "?collectionName=" + collectionName + "&id=" + id;
-      const request = await fetch(url);
+      const url = process.env.SERVER_ROUTE + process.env.PRODUCT_GET_RECURSIVE_ROUTE + "?id=" + id + "&collectionName=" + collectionName;
+      const request = await fetch(url, {
+        cache: "no-cache",
+      });
       const response = await request.json();
-  
+
       return response;
     } catch (error){
       console.error(error);

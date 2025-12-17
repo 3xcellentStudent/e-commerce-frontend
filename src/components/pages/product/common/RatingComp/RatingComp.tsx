@@ -1,40 +1,29 @@
+import DoubleSidesDropSVG from '@/components/SVG/drops/DoubleSidesDropSVG';
 import { GlobalDataType } from '@/types/main/globalData.type';
-// import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
 
 interface Props {
-  rating: string
-  content?: string
-  iconSize?: number
+  rating: number
+  iconSize: "large" | "medium" | "small"
 }
 
-export async function getServerSideProps() {
-  // Fetch data from external API
-  const res = await fetch(`https://.../data`)
-  const data = await res.json()
- 
-  // Pass data to the page via props
-  return { props: { data } }
-}
-
-export default function RatingComp({rating, content, iconSize: fontSize}: Props){
+export default function RatingComp({rating, iconSize}: Props){
   
-  // const {elementsOptionalBg, primaryText} = useSelector(({
-  //   globalData: {colors: {backgrounds, text}}
-  // }: {globalData: GlobalDataType}) => ({...backgrounds, ...text}))
-
-  // useEffect(() => document.querySelectorAll(".css-1c99szj-MuiRating-icon")
-  // .forEach(selector => selector.setAttribute("style", `color: rgba(${elementsOptionalBg.rgb});`)), [elementsOptionalBg])
-
-  return (
-    <div className="h-min flex items-center">
-      {/* <Stack>
-        <Rating value={+rating} precision={0.1} readOnly
-        icon={<StarRoundedIcon sx={{fontSize, color: "#000", stroke: "#fff"}} />} 
-        emptyIcon={<StarBorderRoundedIcon sx={{fontSize, color: "#000", stroke: "#fff"}} />} 
-        />
-      </Stack>
-      <Typography className='ml-2.5 whitespace-nowrap text-xl' sx={{color: "#ccc"}} component="span">{content}</Typography> */}
+  return(
+    <div className='flex flex-row items-center'>
+      {Array.from({length : 5}).map((_, index) => {
+        if(index + 1 <= rating){
+          console.log("index < rating")
+          return <DoubleSidesDropSVG mode="filled" color='gold' iconSize={iconSize} />
+        } else if(index + 1 > Math.round(+rating) || Number.isInteger(+rating)) {
+          console.log("index > rating && Number.isInteger(rating)")
+          return <DoubleSidesDropSVG mode="emtpy" color='gold' iconSize={iconSize} />
+        } else {
+          console.log("else")
+          return <DoubleSidesDropSVG mode="half" color='gold' iconSize={iconSize} />
+        }
+        // <DoubleSidesDropSVG mode={index < rating ? "filled" : Number.isInteger(rating) ? "emtpy"} />
+      })}
+      <span>{rating}</span>
     </div>
   )
 }

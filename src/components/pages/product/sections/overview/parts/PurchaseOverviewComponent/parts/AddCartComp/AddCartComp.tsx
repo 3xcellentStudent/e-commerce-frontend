@@ -7,6 +7,8 @@ import { enqueueSnackbar } from "@/lib/redux/snackbar/reducers";
 import { ProductVariationModel } from "@/types/global/model/product/variation/product.variation.model";
 import { GlobalDataType } from "@/types/main/globalData.type";
 
+import styles from "./styles.module.scss"
+
 // interface Props {
 //   parentId: string
 //   productName: ProductFullModel["productName"];
@@ -19,9 +21,12 @@ import { GlobalDataType } from "@/types/main/globalData.type";
 // export default function AddCartComp({action, inStockStatus}: Props){
 export default function AddCartComp(product: ProductVariationModel){
 
-  const btnCls = `relative duration-200 rounded-md px-5 py-3 uppercase whitespace-nowrap overflow-hidden
-  before:absolute before:block before:left-[-175%] before:top-0 before:h-full before:w-[200%] 
-  before:duration-300 before:z-[0] hover:before:left-0 w-[45%]`;
+  // const btnCls = `relative duration-200 rounded-md px-5 py-3 uppercase whitespace-nowrap overflow-hidden
+  // before:absolute before:block before:left-[-175%] before:top-0 before:h-full before:w-[200%] 
+  // before:duration-300 before:z-[0] hover:before:left-0 w-[45%]`;
+  // const btnCls = `relative duration-200 rounded-md px-5 py-3 uppercase whitespace-nowrap overflow-hidden
+  // before:absolute before:block before:left-[-175%] before:top-0 before:h-full before:w-[200%] 
+  // before:duration-300 before:z-[0] hover:before:left-0 w-[45%]`; 
 
   const dispatch = useAppDispatch();
   const state = useAppSelector(store => store.snackbar)
@@ -29,7 +34,7 @@ export default function AddCartComp(product: ProductVariationModel){
   const isInStock = !!product.stockInfo.quantityAvailable;
 
   function handleClick(){
-    dispatch(add(product))
+    // dispatch(add(product))
     dispatch(enqueueSnackbar({message: `${product.variationName} added to the cart !`, severity: "success"}))
   }
 
@@ -40,12 +45,11 @@ export default function AddCartComp(product: ProductVariationModel){
       className={`${btnCls} ${isInStock ? "bg-gold" : "bg-coffee"}`}>
         <span className="relative z-[2]">Add to cart</span>
       </button>   */}
-      <button onClick={handleClick} 
-      className={`${btnCls} ${isInStock ? "bg-gold" : "bg-coffee"}`}>
+      <button onClick={handleClick} className={`${styles.button_add_to_cart} ${isInStock ? "bg-gold" : "bg-coffee"}`}>
         <span className="relative z-[2]">Add to cart</span>
       </button>
-      <a href={"#"}>
-        <button disabled={isInStock} className={`${btnCls} ${isInStock ? "bg-gold" : "bg-coffee"}`}>
+      <a className={`${isInStock ? "pointer-events-auto cursor-pointer" : "pointer-events-none cursor-default"}`} href={"#"}>
+        <button disabled={!isInStock} className={`${styles.button_buy_now} ${isInStock ? "bg-gold" : "bg-coffee"}`}>
           <span className="relative z-[2]">Buy Now</span>
         </button>
       </a>

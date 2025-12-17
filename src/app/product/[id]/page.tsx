@@ -7,8 +7,6 @@ import Reviews from "@/components/pages/product/sections/reviews/Reviews"
 import { ProductFullModel } from "@/types/global/model/product/product.full.model"
 import styles from "./styles.module.scss"
 import ProductApi from "@/api/database/product/product.api"
-import ReduxProvider from "@/components/common/Redux/ReduxProvider"
-import StoreProvider from "./StoreProvider"
 
 
 interface Props {
@@ -22,10 +20,8 @@ export default async function Page({
 }: Props){
 
   const productObject: Promise<ProductFullModel> = await ProductApi.getOneByIdRecursive(id, "essential-oils");
-  
 
   const {
-    id: productId, 
     mediaContent, 
     descriptions, 
     specifications,
@@ -36,15 +32,11 @@ export default async function Page({
 
   return(
     <main className={styles.main}>
-      <Overview props={await productObject} />
+      {/* <Overview props={await productObject} /> */}
+      <Overview id={id} />
       <Description mediaContent={mediaContent} presentable={descriptions.presentable} />
       <Details specifications={specifications} />
       <Reviews rating={rating} reviewsSnapshot={reviewsSnapshot} reviewsId={reviewsId} />
-      {/* <StoreProvider>
-        <DrawerComponent anchor='right'>
-          <CartList />
-        </DrawerComponent>
-      </StoreProvider> */}
     </main>
   )
 
