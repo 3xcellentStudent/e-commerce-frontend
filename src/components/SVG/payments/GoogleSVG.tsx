@@ -1,11 +1,11 @@
 interface Props {
-  iconSize: string;
+  iconSize: number;
 }
 
 export default function GoogleSVG({iconSize}: Props){
 
   return(
-    <svg className={`${iconSize}`} viewBox="-0.5 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" fill="#000000">
+    <svg width={iconSize} height={iconSize} viewBox="-0.5 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" fill="#000000">
       <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
       <g id="SVGRepo_iconCarrier">

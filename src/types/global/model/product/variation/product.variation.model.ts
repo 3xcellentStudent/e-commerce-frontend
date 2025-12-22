@@ -13,6 +13,7 @@ export interface ProductVariationModel {
 export interface Image {
   media: string;
   src: string;
+  srcset: string;
 }
 
 export interface Descriptions {

@@ -43,24 +43,50 @@
     border-radius: .25rem;
     font-size: 1.25rem;
     transition: .2s ease-in-out;
+    overflow: hidden;
+    height: 46px;
   }
 
   &_add_to_cart {
     padding: .5rem 1.5rem;
+
+    &_svg {
+      right: -2rem;
+      transition: .2s ease-in-out;
+    }
   
     &:hover {
-      padding: .5rem 4rem .5rem 1.5rem;
+      padding: .5rem 2.5rem .5rem 1.5rem;
+    }
+
+    &:hover &_svg {
+      right: .5rem;
     }
   }
 
   &_buy_now {
     padding: .5rem 1.5rem;
+
+    &_text {
+      transition: inherit;
+      // pointer-events: none;
+    }
+
+    &_icons {
+      transition: inherit;
+      opacity: 0;
+    }
     
-    &:hover {
-      padding: .5rem 4rem .5rem 1.5rem;
+    &:hover &_text {
+      opacity: 0;
+    }
+
+    &:hover &_icons {
+      opacity: 1;
     }
   }
 }
+
 
 // .add_to_cart_button, .buy_now_button {
 //   border-radius: .25rem;

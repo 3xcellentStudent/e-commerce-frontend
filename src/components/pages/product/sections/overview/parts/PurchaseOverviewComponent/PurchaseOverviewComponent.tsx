@@ -11,7 +11,10 @@ import { CartStateType } from "@/lib/redux/cart/types";
 import ProductApi from "@/api/database/product/product.api";
 import RatingComp from "@/components/pages/product/common/RatingComp/RatingComp";
 import StockBoxSVG from "@/components/SVG/stock/StockBoxSVG";
-import GoogleSVG from "@/components/SVG/payments/GoogleSVG";
+import GoogleSVG from "@/components/SVG/payments/GooglePaySVG";
+import PlusSVG from "@/components/SVG/simple/PlusSVG";
+import ApplePaySVG from "@/components/SVG/payments/ApplePaySVG";
+import CardPaySVG from "@/components/SVG/payments/CardPaySVG";
 
 // interface Props {
 //   parentId: string
@@ -90,8 +93,6 @@ export default async function PurchaseOverviewComponent({id}: Props){
         {
           productVariations[0].stockInfo.quantityAvailable > 0 ? 
           <>
-            {/* <div className={`${styles.instock_status}`}></div> */}
-            <GoogleSVG iconSize="w-[54px] h-[54px]"/><span className="text-6xl ml-2">Pay</span>
             <StockBoxSVG severity="success" svgClass="mb-[.75rem] mr-2" iconSize="w-[54px] h-[54px]" />
             <div>In stock: All orders shipping with UPS</div>
           </>
@@ -110,13 +111,19 @@ export default async function PurchaseOverviewComponent({id}: Props){
       {/* <StoreProvider> */}
         {/* <AddCartComp {...productVariations[0]} /> */}
 
-      <div className={` flex items-center justify-between w-[100%] mt-3`} >
-        <button className={`${styles.button_add_to_cart} ${true ? "bg-gold" : "bg-coffee"}`}>
+      <div className={` flex items-center w-[100%] mt-3`}>
+        <button className={`relative items-center flex ${styles.button_add_to_cart} ${true ? "bg-gold" : "bg-coffee"}`}>
           <span className="relative z-[2]">Add to cart</span>
+          <PlusSVG svgClass={`${styles.button_add_to_cart_svg} absolute`} fill="fill-light" stroke="stroke-light" iconSize={24} strokeWidth={.5} />
         </button>
         <a className={`${true ? "pointer-events-auto cursor-pointer" : "pointer-events-none cursor-default"}`} href={"#"}>
-          <button disabled={false} className={`${styles.button_buy_now} ${true ? "bg-gold" : "bg-coffee"}`}>
-            <span className="relative z-[2]">Buy Now</span>
+          <button disabled={false} className={`${styles.button_buy_now} ${true ? "bg-gold" : "bg-coffee"} relative flex items-center`}>
+            <span className={`z-[2] w-full text-center absolute left-[50%] translate-x-[-50%] whitespace-nowrap ${styles.button_buy_now_text}`}>Buy Now</span>
+            <div className={`flex flex-row gap-1 ${styles.button_buy_now_icons}`}>
+              <GoogleSVG iconSize={24} />
+              <ApplePaySVG iconSize={24} />
+              <CardPaySVG iconSize={24} />
+            </div>
           </button>
         </a>
       </div>

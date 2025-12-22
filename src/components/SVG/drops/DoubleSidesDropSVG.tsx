@@ -1,7 +1,7 @@
 interface Props {
   mode: "filled" | "half" | "emtpy";
   color: string;
-  iconSize: "large" | "medium" | "small"
+  iconSize: "large" | "medium" | "small" | number
 }
 
 export default function DoubleSidesDropSVG({mode, color, iconSize}: Props){

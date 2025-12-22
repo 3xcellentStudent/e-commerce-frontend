@@ -23,11 +23,11 @@ export default async function Overview({id}: {id: string}){
     return(
       <section className={`top_section`}>
         <div className={`${styles.wrapper}`}>
-          <div className={`${styles.container}`} >
+          <div className="w-[65%]" >
             {/* <SmallSlider carouselIndex={carouselIndex} setCarouselIndex={setCarouselIndex} />
             <BigSlider carouselIndex={carouselIndex} setCarouselIndex={setCarouselIndex} /> */}
-            {/* <BigSlider images={productVariations[0].image} /> */}
-            <picture className={`${styles.images_container}`}>
+            <BigSlider images={productVariations[0].image} />
+            {/* <picture className={`${styles.images_container}`}>
               {productVariations[0].image.map(({media, src}) => {
                 if(media !== ""){
                   return <source className="absolute w-full h-full object-scale-down left-0 top-0" key={src} media={media} srcSet={src} />
@@ -35,10 +35,12 @@ export default async function Overview({id}: {id: string}){
                   return <img className="absolute w-full h-full object-scale-down left-0 top-0" key={src} src={src} alt="Product variation image" />
                 }
               })}
-            </picture>
+            </picture> */}
           </div>
-          <div className={styles.container}>
-            <PurchaseOverviewComponent id={id} />
+          <div className="w-[45%] h-full relative">
+            <div className="sticky top-[7rem]">
+              <PurchaseOverviewComponent id={id} />
+            </div>
           </div>
         </div>
       </section>
