@@ -3,7 +3,7 @@ import { CartStateType, CartStateActionsType } from "./types";
 
 const initialState: CartStateType[] = []
 
-const cartSlice = createSlice({
+const slice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
@@ -25,6 +25,6 @@ const cartSlice = createSlice({
   },
 });
 
-export const {add, remove} = cartSlice.actions;
+export const {add, remove} = slice.actions;
 
-export default cartSlice.reducer;
+export default slice.reducer;

@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./styles.module.scss"
 import { ProductVariationModel } from "@/types/global/model/product/variation/product.variation.model";
 import styled from "styled-components";
+import {increase, decrease} from "@/lib/redux/product/carousel/reducers"
+import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks";
 
 interface Props {
   images: ProductVariationModel["image"];
@@ -14,54 +16,29 @@ const ImageContainer = styled.div<{position: number}>`
   transition: 200ms ease-in;
 `
 
-export default function BigCarousel({images}: Props){
+export default function LargeCarousel({images}: Props){
 
-  // const [position, setPosition] = useState<number>(0)
+  const productCarousel = useAppSelector(state => state.productCarousel);
 
-  // const wrapperRef = useRef<HTMLDivElement | null>(null)
+  const dispatch = useAppDispatch();
 
-  // function pointerPrev(){
-  //   const carouselWidth = wrapperRef.current ? wrapperRef.current?.clientWidth : 0;
-  //   if(position < 0){
-  //     setPosition(prev => prev + carouselWidth)
-  //     // setCarouselIndex(prev => prev - 1)
-  //   }
-  // }
-
-  // function pointerNext(){
-  //   const carouselWidth = wrapperRef.current ? wrapperRef.current?.clientWidth : 0;
-  //   if(position > -carouselWidth * (images?.length - 1)){
-  //     // setCarouselIndex(prev => prev + 1)
-  //     setPosition(prev => prev - carouselWidth)
-  //   }
-  // }
-
-  // function changePositionWithIndex(index: number){
-  //   const carouselWidth = wrapperRef.current ? wrapperRef.current?.clientWidth : 0;
-  //   setPosition(index * -carouselWidth);
-  // }
-  
-  // useEffect(() => changePositionWithIndex(carouselIndex), [carouselIndex])
-
-  // useEffect(() => {
-  //   window.onresize = () => {wrapperRef.current && setCarouselWidth(wrapperRef.current?.clientWidth)}
-  // }, [])
-
-
-
-  const [position, setPosition] = useState<number>(0)
+  const [position, setPosition] = useState<number>(0);
 
   function pointerPrev(){
     if(position < 0){
-      setPosition(prev => prev + 1)
+      dispatch(increase(1))
     }
   }
 
   function pointerNext(){
     if(position > -images.length + 1){
-      setPosition(prev => prev - 1)
+      dispatch(decrease(1))
     }
   }
+
+  useEffect(() => {
+    setPosition(productCarousel)
+  }, [productCarousel])
 
   return(
     <div className={`w-[50%] relative flex items-center flex-row justify-center overflow-hidden ${styles.wrapper}`}>
@@ -69,8 +46,8 @@ export default function BigCarousel({images}: Props){
         return(
           <ImageContainer key={src + index} position={index + position} className={`absolute h-full w-full`} >
             <picture className={`${styles.images_container}`}>
-              {media !== "" ? <source className="absolute w-full h-full object-scale-down left-0 top-0" media={media} srcSet={srcset} /> : 
-              <img className="absolute w-full h-full object-scale-down left-0 top-0" src={src} alt="Product variation image" />
+              {media !== "" ? <source className="absolute w-full h-full object-scale-down left-0 top-0" media={media} srcSet={src} /> : 
+              <img className="absolute w-full h-full object-scale-down left-0 top-0" srcSet={srcset} src={src} alt="Product variation image" />
               }
             </picture>
           </ImageContainer>

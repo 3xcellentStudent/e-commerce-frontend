@@ -1,7 +1,7 @@
 import styles from "./styles.module.scss";
 import Purchase from './parts/PurchaseOverviewComponent/Purchase';
-import BigSlider from './parts/CarouselOverviewComponent/BigCarousel/BigCarousel';
-import SmallSlider from './parts/CarouselOverviewComponent/SmallCarousel/SmallCarousel';
+import LargeCarousel from './parts/CarouselOverview/LargeCarousel/LargeCarousel';
+import SmallCarousel from './parts/CarouselOverview/SmallCarousel/SmallCarousel';
 // import { useState } from 'react';
 import { GlobalDataType } from '@/types/main/globalData.type';
 import PurchaseOverviewComponent from './parts/PurchaseOverviewComponent/PurchaseOverviewComponent';
@@ -23,10 +23,11 @@ export default async function Overview({id}: {id: string}){
     return(
       <section className={`top_section`}>
         <div className={`${styles.wrapper}`}>
-          <div className="w-[65%]" >
+          <div className="w-[65%] flex flex-row" >
             {/* <SmallSlider carouselIndex={carouselIndex} setCarouselIndex={setCarouselIndex} />
             <BigSlider carouselIndex={carouselIndex} setCarouselIndex={setCarouselIndex} /> */}
-            <BigSlider images={productVariations[0].image} />
+            <SmallCarousel images={productVariations[0].image} />
+            <LargeCarousel images={productVariations[0].image} />
             {/* <picture className={`${styles.images_container}`}>
               {productVariations[0].image.map(({media, src}) => {
                 if(media !== ""){
