@@ -1,23 +1,18 @@
 .section {
   position: relative;
-  padding-top: 7rem;
-  height: calc(100svh + 4rem);
+  height: 100svh;
   display: flex;
   flex-direction: row;
   margin: 0 auto;
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
   display: flex;
   flex-direction: row;
-  width: 100%;
   justify-content: space-between;
-  align-items: center;
 }
 
-.wrapper {
+.text-container {
   z-index: 1;
   margin: 0 auto;
   display: flex;

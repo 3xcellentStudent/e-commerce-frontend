@@ -23,14 +23,14 @@ export default function Home(){
   return(
     <>
       <Header/>
-      <main className={styles.container}>
+      <main className={`z-[1] relative`}>
         <WelcomeSection/>
         <CatalogSection/>
         <AboutUs/>
       </main>
       <footer></footer>
 
-      <CurvyLinesSVG className="-z-1 absolute top-0 left-0 h-[100vh* (1vw + 1vh)] w-[100vw] min-w-[1810px]" />
+      <CurvyLinesSVG className="absolute top-0 left-0 h-[100vh* (1vw + 1vh)] w-[100vw] min-w-[1810px]" />
     </>
   )
 }

@@ -23,34 +23,24 @@ const config: Config = {
         }
       },
       colors: {
-        'light': "#F5EBD7",
-        'light-warm': "#EAD7B1",
-        'gold-white': "#D8B972",
-        'gold': "#C89B3C",
-        'coffee': "#a88853ff",
-        'brown': "#933E13",
-        'brown-dark': "#4D3A10",
-        'green-light': "#9BA96F",
-        'green': "#7C8F5A",
-        'green-dark': "#6F7D4E",
-        'menthol': "#8D9E75",
+        'base': '#7E8A50',
+        'accent': '#343B25',
+        'neutral': '#F3F4EF',
+
+        'aux-base': '#F0DBB9',
+        'aux-accent': '#D94541',
+        'aux-neutral': '#FFF0DE',
+
+        'content-base': '#020202',
+        'content-accent': '#343B25',
+        'content-neutral': '#7E8A50',
+        'content-muted': '#707070',
+        'content-bright': '#FFFFFF',
 
         'severity-info': "#0096FF",
         'severity-error': "#EE4B2B",
         'severity-warning': "#FFEA00",
         'severity-success': "#50C878",
-
-        'light-rgb': "245, 235, 215",
-        'light-warm-rgb': "234, 215, 177",
-        'gold-white-rgb': "216, 185, 114",
-        'gold-rgb': "200, 155, 60",
-        'coffee-rgb': "168, 136, 83",
-        'brown-rgb': "147, 62, 19",
-        'brown-dark-rgb': "77, 58, 16",
-        'green-light-rgb': "155, 169, 111",
-        'green-rgb': "124, 143, 90",
-        'green-dark-rgb': "111, 125, 78",
-        'menthol-rgb': "141, 158, 117",
       }
     },
     screens: {
@@ -58,7 +48,39 @@ const config: Config = {
       'laptop': {max: '1024px'},
       'desktop': {max: '1280px'},
     },
+    spacing: {
+      'section-top': '7rem'
+    }
   },
   plugins: [],
 }
 export default config
+
+        // 'light': "#F5EBD7",
+        // 'light-warm': "#EAD7B1",
+        // 'gold-white': "#D8B972",
+        // 'gold': "#C89B3C",
+        // 'coffee': "#a88853ff",
+        // 'brown': "#933E13",
+        // 'brown-dark': "#4D3A10",
+        // 'green-light': "#9BA96F",
+        // 'green': "#7C8F5A",
+        // 'green-dark': "#6F7D4E",
+        // 'menthol': "#8D9E75",
+
+        // 'severity-info': "#0096FF",
+        // 'severity-error': "#EE4B2B",
+        // 'severity-warning': "#FFEA00",
+        // 'severity-success': "#50C878",
+
+        // 'light-rgb': "245, 235, 215",
+        // 'light-warm-rgb': "234, 215, 177",
+        // 'gold-white-rgb': "216, 185, 114",
+        // 'gold-rgb': "200, 155, 60",
+        // 'coffee-rgb': "168, 136, 83",
+        // 'brown-rgb': "147, 62, 19",
+        // 'brown-dark-rgb': "77, 58, 16",
+        // 'green-light-rgb': "155, 169, 111",
+        // 'green-rgb': "124, 143, 90",
+        // 'green-dark-rgb': "111, 125, 78",
+        // 'menthol-rgb': "141, 158, 117",

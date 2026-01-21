@@ -1,0 +1,13 @@
+.container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: calc(100svh - 7rem);
+  padding-right: 6rem;
+}
+
+.navigation_button {
+  margin-top: 6rem;
+  padding: .75rem 1.5rem;
+}
