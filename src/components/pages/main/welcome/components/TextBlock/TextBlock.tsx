@@ -14,7 +14,7 @@ export default function TextBlock({data}: Props){
   return(
     <div className={`${styles.container}`}>
       <h3 className="text-xl font-bold text-content-neutral ml-1.5">{data.suptitle}</h3>
-      <h2 className="text-8xl font-bold uppercase text-content-accent my-6">{data.title}</h2>
+      <h2 className="text-7xl my-4 font-bold uppercase text-content-accent">{data.title}</h2>
       <h4 className="text-content-base ml-1.5">{data.lead}</h4>
       <button className={`${styles.navigation_button} bg-base text-content-bright w-min whitespace-nowrap`}>
         <Link className="px-1 flex flex-row items-center" href={href}>

@@ -41,6 +41,9 @@ const config: Config = {
         'severity-error': "#EE4B2B",
         'severity-warning': "#FFEA00",
         'severity-success': "#50C878",
+      },
+      spacing: {
+        'section-top': '7rem'
       }
     },
     screens: {
@@ -48,13 +51,10 @@ const config: Config = {
       'laptop': {max: '1024px'},
       'desktop': {max: '1280px'},
     },
-    spacing: {
-      'section-top': '7rem'
-    }
   },
   plugins: [],
 }
-export default config
+export default config;
 
         // 'light': "#F5EBD7",
         // 'light-warm': "#EAD7B1",
