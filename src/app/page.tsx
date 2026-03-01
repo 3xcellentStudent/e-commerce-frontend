@@ -13,6 +13,8 @@ import StoreProvider from '../components/common/redux/StoreProvider/StoreProvide
 import DrawerComponent from '@/components/common/DrawerComponent/DrawerComponent'
 import CartList from '@/components/common/CartList/CartList'
 import Snackbar from '@/components/common/Snackbar/Snackbar'
+import FeaturedProducts from '@/components/pages/main/welcome/components/Features/FeaturedProducts'
+import Advantages from '@/components/pages/main/welcome/components/Advantages/Advantages'
 
 export default function Home(){
 
@@ -25,7 +27,9 @@ export default function Home(){
       <Header/>
       <main className={`z-[1] relative`}>
         <WelcomeSection/>
-        <CatalogSection/>
+        {/* <CatalogSection/> */}
+        <FeaturedProducts/>
+        <Advantages/>
         <AboutUs/>
       </main>
       <footer></footer>

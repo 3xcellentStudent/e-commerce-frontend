@@ -1,9 +1,12 @@
+interface Props {
+  className: string;
+  tailwindColor: `fill-${string}`;
+}
 
-
-export default function AnimalPawSVG(){
+export default function AnimalPawSVG({className, tailwindColor}: Props){
 
   return(
-    <svg fill="#000000" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xmlSpace="preserve">
+    <svg className={`${className} ${tailwindColor}`} version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xmlSpace="preserve">
       <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
       <g id="SVGRepo_iconCarrier">

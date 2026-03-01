@@ -1,6 +1,0 @@
-[
-  {"href": "http://localhost:3000", "text": "Home"},
-  {"href": "http://localhost:3000", "text": "Collections"},
-  {"href": "http://localhost:3000/about-us", "text": "About Us"},
-  {"href": "http://localhost:3000/contact", "text": "Contact"}
-]

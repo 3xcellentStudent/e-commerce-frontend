@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss"
 import TextBlock from "./components/TextBlock/TextBlock";
-import { welcome } from "@/data.models/pages/main/sections";
+import model from "@/models/pages/main/sections/welcome/model.json";
 import ImageBlock from "./components/ImageBlock/ImageBlock";
 import CurvedBackgroundSVG from "@/components/SVG/other/CurvedBackground";
 
@@ -11,13 +11,14 @@ export default function WelcomeSection(){
 
   return(
     <section className={`${styles.section} pt-section-top`} id='main-page-title-section'>
-      <div className={`base-container ${styles.container}`}>
-        <TextBlock data={welcome.textBlock} />
-        <ImageBlock data={welcome.imageBlock} />
+      <div className={`base-container ${styles.container} relative`}>
+        <TextBlock data={model.textBlock} />
+        <ImageBlock data={model.imageBlock} />
         {/* <RightBlock backgroundImage={backgroundImage1} textArray={textArray2}/> */}
       </div>
 
-      <CurvedBackgroundSVG className="absolute right-0 top-0 fill-aux-neutral w-full h-full" />
+      {/* <CurvedBackgroundSVG className={`absolute right-0 top-0 fill-content-muted h-[calc(100svh+1.5rem)]`} /> */}
+      <CurvedBackgroundSVG className={`absolute right-0 top-0 fill-aux-base h-[calc(100svh+1rem)]`} />
     </section>
   )
 }

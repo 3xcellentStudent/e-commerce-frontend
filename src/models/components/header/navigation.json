@@ -1,0 +1,20 @@
+[
+  {
+    "menuItems": [
+      {"href": "http://localhost:3000", "text": "Travel Line"},
+      {"href": "http://localhost:3000", "text": "Good Morning Line"},
+      {"href": "http://localhost:3000", "text": "Night Deep Recovery"},
+      {"href": "http://localhost:3000", "text": "Mini"}
+    ], 
+    "text": "Thematic"},
+  {
+    "menuItems": [
+      {"href": "http://localhost:3000", "text": "Cream"},
+      {"href": "http://localhost:3000", "text": "Lotion"},
+      {"href": "http://localhost:3000", "text": "Bath & Body"}
+    ],
+    "text": "Shop By Category"
+  },
+  {"href": "http://localhost:3000/about-us", "text": "About Us"},
+  {"href": "http://localhost:3000/contact", "text": "Contact"}
+]

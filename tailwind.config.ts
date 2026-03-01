@@ -23,9 +23,9 @@ const config: Config = {
         }
       },
       colors: {
-        'base': '#7E8A50',
-        'accent': '#343B25',
-        'neutral': '#F3F4EF',
+        'main-base': '#7E8A50',
+        'main-accent': '#343B25',
+        'main-neutral': '#F3F4EF',
 
         'aux-base': '#F0DBB9',
         'aux-accent': '#D94541',
@@ -34,7 +34,7 @@ const config: Config = {
         'content-base': '#020202',
         'content-accent': '#343B25',
         'content-neutral': '#7E8A50',
-        'content-muted': '#707070',
+        'content-muted': '#eeeeee',
         'content-bright': '#FFFFFF',
 
         'severity-info': "#0096FF",

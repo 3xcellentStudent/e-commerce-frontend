@@ -1,0 +1,38 @@
+.section {
+  max-width: 1200px;
+  margin: 14rem auto 0;
+}
+
+.container {
+  padding: 0 0 0 6rem;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.description {
+  margin-top: 2rem;
+}
+
+.list {
+  margin-top: 2rem;
+}
+
+.list_item {
+  margin: 1rem 0;
+}
+
+.list_item_title {
+  font-size: 1.5rem;
+}
+  
+.list_item_icon_container {
+  border-radius: 50%;
+  padding: 1rem;
+  width: min-content;
+  margin-right: 2rem;
+}
+
+.list_item_icon {
+  width: 3.5rem;
+  height: 3.5rem;
+}

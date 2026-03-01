@@ -1,0 +1,49 @@
+.section {
+  width: 100svw;
+  margin: 7rem auto;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.container {
+  padding: 0 6rem 0 0;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+}
+
+.description {
+  margin-top: 3rem;
+}
+
+.list {
+  margin-top: 3rem;
+}
+
+.list_item {
+  padding: 1rem 0 1rem 1.5rem;
+  
+  &::before {
+    border-radius: 50%;
+    content: '';
+    position: absolute;
+    width: .5rem;
+    height: .5rem;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.list_item_title {
+  font-size: 1.5rem;
+}
+
+.list_item_icon {
+  width: 3.5rem;
+  height: 3.5rem;
+}
