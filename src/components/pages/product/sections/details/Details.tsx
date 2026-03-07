@@ -2,7 +2,7 @@ import './style.scss'
 import { SyntheticEvent } from 'react';
 import { useSelector } from 'react-redux';
 import VerticalTabsList from './parts/Tabs/VerticalTabsList';
-import { ProductFullModel } from '@/types/global/model/product/product.full.model';
+import { ProductFullModel } from '@/types/api/product/product.full.model';
 
 interface Props {
   specifications: ProductFullModel["specifications"]

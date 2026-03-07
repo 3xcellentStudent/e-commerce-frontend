@@ -11,10 +11,10 @@ import styles from "./styles.module.scss"
 import Quantity from "../Quantity/Quantity"
 import InternalCircleSVG from "../Radio/InternalCircleSVG"
 import { GlobalDataType } from "@/types/main/globalData.type"
-import { ProductFullModel } from "@/types/global/model/product/product.full.model"
+import { ProductFullModel } from "@/types/api/product/product.full.model"
 import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks"
 import {add, remove} from "@/lib/redux/cart/reducers"
-import { ProductVariationModel } from "@/types/global/model/product/variation/product.variation.model"
+import { ProductVariationModel } from "@/types/api/product/variation/product.variation.model"
 
 
 export default function CartList(){

@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 import SectionTitle from '@/components/common/SectionTitle/SectionTitle'
 import styles from "./styles.module.scss"
 import { GlobalDataType } from '@/types/main/globalData.type'
-import { MediaModel, ProductFullModel } from '@/types/global/model/product/product.full.model'
+import { MediaModel, ProductFullModel } from '@/types/api/product/product.full.model'
 
 interface Props {
   presentable: string[];

@@ -3,7 +3,7 @@ import { GlobalDataType } from "@/types/main/globalData.type";
 import { useSelector } from "react-redux";
 import styles from "./styles.module.scss"
 import Scale from "./parts/Scale/Scale";
-import { ProductFullModel } from "@/types/global/model/product/product.full.model";
+import { ProductFullModel } from "@/types/api/product/product.full.model";
 
 interface Props {
   reviewsSnapshot: ProductFullModel["reviewsSnapshot"];

@@ -5,7 +5,7 @@ import ReviewsList from '../ReviewsList/ReviewsList';
 // import { useEffect, useRef, useState } from 'react';
 import { ReviewsType } from '@/types/global/model/reviews/reviews.type';
 import getReviewsRecursive from '@/api/database/reviews/reviews.api';
-import { ProductFullModel } from '@/types/global/model/product/product.full.model';
+import { ProductFullModel } from '@/types/api/product/product.full.model';
 
 interface Props {
   reviewsId: ProductFullModel["reviewsId"]

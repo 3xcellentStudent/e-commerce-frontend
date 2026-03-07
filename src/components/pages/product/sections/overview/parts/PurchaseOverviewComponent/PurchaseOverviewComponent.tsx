@@ -1,13 +1,8 @@
-import { useSelector } from "react-redux"
 import SelectionComp from "./parts/SelectionComponent/SelectionComp"
 import TitleComp from "./parts/TitleComponent/TitleComp"
 import styles from "./styles.module.scss"
-// import { useState } from "react";
 import AddCartComp from "./parts/AddCartComp/AddCartComp";
-import { ProductFullModel } from "@/types/global/model/product/product.full.model";
-import { ProductVariationModel } from "@/types/global/model/product/variation/product.variation.model";
-import StoreProvider from "@/components/common/redux/StoreProvider/StoreProvider";
-import { CartStateType } from "@/lib/redux/cart/types";
+import { ProductFullModel } from "@/types/api/product/product.full.model";
 import ProductApi from "@/api/database/product/product.api";
 import RatingComp from "@/components/pages/product/common/RatingComp/RatingComp";
 import StockBoxSVG from "@/components/SVG/stock/StockBoxSVG";
@@ -15,17 +10,6 @@ import GoogleSVG from "@/components/SVG/payments/GooglePaySVG";
 import PlusSVG from "@/components/SVG/simple/PlusSVG";
 import ApplePaySVG from "@/components/SVG/payments/ApplePaySVG";
 import CardPaySVG from "@/components/SVG/payments/CardPaySVG";
-
-// interface Props {
-//   parentId: string
-//   descriptions: ProductFullModel["descriptions"]
-//   countOfReviews: ProductFullModel["reviewsSnapshot"]["total"];
-//   productName: ProductFullModel["productName"];
-//   collectionName: ProductFullModel["collectionName"];
-//   rating: ProductFullModel["rating"];
-//   price: ProductVariationModel["stockInfo"]["price"]
-//   productVariations: ProductVariationModel[]
-// }
 
 interface Props {
   id: string;
@@ -37,32 +21,7 @@ export default async function PurchaseOverviewComponent({id}: Props){
     collectionName, rating, productName, reviewsSnapshot: {total: countOfReviews}, productVariations, descriptions
   }: ProductFullModel = await ProductApi.getOneByIdRecursive(id, "essential-oils");
 
-  // const [inStockStatus, setInstockStatus] = useState<boolean>(true)
-
-  // const {descriptions} = useSelector(({productData}: {productData: ProductFullModel}) => productData);
-
-  // function dispatchToCart(){
-  //   const {name, value, index} = fieldsRef.current[0]
-    
-  //   const fields = createFieldsArray();
-    
-  //   const resultObj: CartProduct = {
-  //     productName: productData?.title,
-  //     productId,
-  //     productImg: productData?.mediaContent?.images[index],
-  //     quantity: quantityRef.current,
-  //     quantityMax: productData.stockInfo?.quantityMax,
-  //     price: productData?.stockInfo?.price,
-  //     fields: fields[0].value ? fields : fieldsRefFunction(),
-  //     displayedField: {name, value},
-  //     checked: false,
-  //   }
-
-  //   dispatch(actionCallCartState({type: CART_ADD_ITEM_SAVE_CONST, payload: resultObj}))
-  // }
-
   return(
-    // <div className={`${styles.container}`}>
     <div className="flex flex-col">
         {/* <TitleComp collectionName={collectionName} countOfReviews={countOfReviews} 
         price={productVariations[0].stockInfo.price} productName={productName} rating={rating} /> */}
@@ -112,13 +71,13 @@ export default async function PurchaseOverviewComponent({id}: Props){
         {/* <AddCartComp {...productVariations[0]} /> */}
 
       <div className={` flex items-center w-[100%] mt-3`}>
-        <button className={`relative items-center flex ${styles.button_add_to_cart} ${true ? "bg-gold" : "bg-coffee"}`}>
-          <span className="relative z-[2]">Add to cart</span>
-          <PlusSVG svgClass={`${styles.button_add_to_cart_svg} absolute`} fill="fill-light" stroke="stroke-light" iconSize={24} strokeWidth={.5} />
-        </button>
+        <AddCartComp product={productVariations[0]}/>
+        
         <a className={`${true ? "pointer-events-auto cursor-pointer" : "pointer-events-none cursor-default"}`} href={"#"}>
           <button disabled={false} className={`${styles.button_buy_now} ${true ? "bg-gold" : "bg-coffee"} relative flex items-center`}>
-            <span className={`z-[2] w-full text-center absolute left-[50%] translate-x-[-50%] whitespace-nowrap ${styles.button_buy_now_text}`}>Buy Now</span>
+            <span className={`z-[2] w-full text-center absolute left-[50%] translate-x-[-50%] whitespace-nowrap ${styles.button_buy_now_text}`}>
+              Buy Now
+            </span>
             <div className={`flex flex-row gap-1 ${styles.button_buy_now_icons}`}>
               <GoogleSVG iconSize={24} />
               <ApplePaySVG iconSize={24} />

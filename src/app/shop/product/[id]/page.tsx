@@ -4,7 +4,7 @@ import Description from "@/components/pages/product/sections/description/Descrip
 import Details from "@/components/pages/product/sections/details/Details"
 import Overview from "@/components/pages/product/sections/overview/Overview"
 import Reviews from "@/components/pages/product/sections/reviews/Reviews"
-import { ProductFullModel } from "@/types/global/model/product/product.full.model"
+import { ProductFullModel } from "@/types/api/product/product.full.model"
 import styles from "./styles.module.scss"
 import ProductApi from "@/api/database/product/product.api"
 

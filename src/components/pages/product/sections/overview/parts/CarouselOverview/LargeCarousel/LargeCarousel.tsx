@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import styles from "./styles.module.scss"
-import { ProductVariationModel } from "@/types/global/model/product/variation/product.variation.model";
+import { ProductVariationModel } from "@/types/api/product/variation/product.variation.model";
 import styled from "styled-components";
 import {increase, decrease} from "@/lib/redux/product/carousel/reducers"
 import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks";

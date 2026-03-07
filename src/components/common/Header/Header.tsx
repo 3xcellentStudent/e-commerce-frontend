@@ -8,6 +8,7 @@ import Link from 'next/link';
 import model from "@/models/components/header/navigation.json"
 import { motion, useScroll, useMotionValueEvent } from "motion/react"
 import { useState } from "react";
+import BasketSVG from "@/components/SVG/basket/BasketSVG";
 
 export default function Header(){
 
@@ -38,23 +39,27 @@ export default function Header(){
                 return <li key={item.text + index}>
                   {
                     item.menuItems ? (
-                      <div 
-                      className={`whitespace-nowrap px-2 before:bg-brown-dark/50 text-main-accent hover:text-brown-dark/70 ${styles.navigation_link}`}>
-                        <span>{item.text}</span>
-                        <menu className="absolute">
-                          {item.menuItems.map(({href, text}) => {
-                            return(
-                              <li key={href + text}>
-                                <button>
-                                  <Link href={href} 
-                                  className={`whitespace-nowrap px-2 before:bg-brown-dark/50 text-main-accent hover:text-brown-dark/70 ${styles.navigation_link}`}>
-                                    <span>{text}</span>
-                                  </Link>
-                                </button>
-                              </li>
-                            )
-                          })}
-                        </menu>
+                      <div className={`
+                      whitespace-nowrap px-2 before:bg-brown-dark/50 text-main-accent hover:text-brown-dark/70 
+                      ${styles.navigation_container}
+                      `}>
+                          <span>{item.text}</span>
+                          <menu className={`${styles.menu_accordeon}`}>
+                            <div className={`${styles.submenu}`}>
+                              {item.menuItems.map(({href, text}) => {
+                                return(
+                                  <li key={href + text}>
+                                    <button>
+                                      <Link href={href} 
+                                      className={`whitespace-nowrap px-2 before:bg-brown-dark/50 text-main-accent hover:text-brown-dark/70 ${styles.navigation_link}`}>
+                                        <span>{text}</span>
+                                      </Link>
+                                    </button>
+                                  </li>
+                                )
+                              })}
+                            </div>
+                          </menu>
                       </div>
                     ) : (
                       <button>
@@ -70,7 +75,23 @@ export default function Header(){
             </menu>
           </nav>
         </div>
+
+        <div>
+          <button className="w-[2rem] h-[2rem]">
+            <div className="pointer-events-none">
+              <BasketSVG/>
+            </div>
+          </button>
+          {/* <BadgeButton className={styles.basket}>
+            <div className="absolute top-0 left-0 w-full h-full">
+              <BasketSVG/>
+            </div>
+          </BadgeButton> */}
+            
+        </div>
       </div>
+
+
       <div className={`
         ${styles.line} 
         ${isClose && "bg-main-base bg-opacity-30 group-hover:bg-opacity-60"}

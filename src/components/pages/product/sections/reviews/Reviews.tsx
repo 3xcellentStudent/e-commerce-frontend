@@ -3,7 +3,7 @@ import PaginationComponent from './parts/PaginationComponent/PaginationComponent
 
 import styles from "./styles.module.scss"
 import ReviewAnalyticsPanel from './parts/ReviewAnalyticsPanel/ReviewAnalyticsPanel';
-import { ProductFullModel } from '@/types/global/model/product/product.full.model';
+import { ProductFullModel } from '@/types/api/product/product.full.model';
 
 interface Props {
   rating: ProductFullModel["rating"]

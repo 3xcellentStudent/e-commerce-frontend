@@ -36,22 +36,15 @@ export default function RootLayout({children}: {children: ReactNode}){
 
   return (
     <html className={`${inter.variable} ${mollie.variable}`} lang="en">
-      {/* <Provider store={store}> */}
-        {/* <ThemeProvider theme={theme}> */}
-          {/* <body className={roboto.className}> */}
-          <body className='relative overflow-x-hidden'>
-            <StoreProvider>
-              {children}
-              <DrawerComponent anchor='right'>
-                <CartList />
-              </DrawerComponent>
-              <Snackbar/>
-            </StoreProvider>
-
-          </body>
-          {/* </body> */}
-        {/* </ThemeProvider> */}
-      {/* </Provider> */}
+      <body className='relative overflow-x-hidden'>
+        <StoreProvider>
+          {children}
+          {/* <DrawerComponent anchor='right'>
+            <CartList />
+          </DrawerComponent> */}
+          {/* <Snackbar/> */}
+        </StoreProvider>
+      </body>
     </html>
   )
 }

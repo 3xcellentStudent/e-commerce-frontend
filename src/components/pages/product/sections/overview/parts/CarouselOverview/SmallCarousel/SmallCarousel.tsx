@@ -1,11 +1,9 @@
 'use client'
 
-import { Dispatch, PointerEvent, SetStateAction, useCallback, useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { PointerEvent, useCallback, useEffect, useRef, useState } from "react";
 import styles from "./styles.module.scss"
-import { GlobalDataType } from "@/types/main/globalData.type";
-import { ProductFullModel } from "@/types/global/model/product/product.full.model";
-import { ProductVariationModel } from "@/types/global/model/product/variation/product.variation.model";
+import { ProductFullModel } from "@/types/api/product/product.full.model";
+import { ProductVariationModel } from "@/types/api/product/variation/product.variation.model";
 import styled from "styled-components";
 import { useAppDispatch, useAppSelector } from "@/lib/redux/hooks";
 import {change} from "@/lib/redux/product/carousel/reducers"
@@ -15,12 +13,8 @@ interface Props {
   images: ProductVariationModel["image"];
 }
 
-// const ImageContainer = styled.div<{position: number}>`
-//   top: ${props => `calc(${props.position} * 100px)`};
-//   transition: 200ms ease-in;
-// `
-const ImageContainer = styled.div<{position: number, index: number}>`
-  transform: translateY(${props => `calc(${props.index} * -100px + ${props.position}px)`});
+const ImageContainer = styled.div<{$position: number, $index: number, $arrayLength: number}>`
+  transform: translateY(${props => `calc(${props.$index} * 100px + ${props.$position}px)`});
   transition: 75ms;
 `
 
@@ -34,9 +28,6 @@ export default function SmallCarousel({images}: Props){
   const itemSize = 100;
 
   const dispatch = useAppDispatch();
-
-  // const wrapperRef = useRef<HTMLDivElement | null>(null)
-  // const activeElementIndex = useRef<number>(0)
 
   const conditions = useRef({
     isButtonPressed: false,
@@ -108,7 +99,6 @@ export default function SmallCarousel({images}: Props){
     else if(downY - event.pageY === 0){
       const target = event.target as HTMLButtonElement;
       const index = target.attributes[1].value;
-      // activeElementIndex.current = +index
       dispatch(change((+index) - (images.length - 1)))
     } else {
       setPosition(prev => calcFocus(prev))
@@ -127,7 +117,9 @@ export default function SmallCarousel({images}: Props){
     };
   }, []);
 
-  useEffect(() => setPosition(itemSize * productCarousel), [productCarousel])
+  useEffect(() => {
+    setPosition(itemSize * productCarousel)
+  }, [productCarousel])
 
   return(
     // <div ref={wrapperRef} id="small_slider_wrapper" onPointerDown={carouselPointerDown} 
@@ -154,10 +146,11 @@ export default function SmallCarousel({images}: Props){
     //   </div>
     // </div>
 
-    <div onPointerMove={pointerMove} onPointerDown={pointerDown} onPointerUp={pointerUp} className={`relative flex items-center flex-col justify-center overflow-hidden ${styles.wrapper}`}>
+    <div onPointerMove={pointerMove} onPointerDown={pointerDown} onPointerUp={pointerUp} className={`relative flex items-center flex-col overflow-hidden ${styles.wrapper}`}>
       {images?.map(({media, src, srcset}, index) => {
           return(
-            <ImageContainer key={src + index} position={position} index={index} className={`absolute w-full ${styles.image_container}`} >
+            <ImageContainer key={src + index} $arrayLength={images.length} 
+            $position={position} $index={index} className={`absolute w-full ${styles.image_container}`} >
               <picture className={`pointer-events-none`}>
                 {media !== "" ? <source className="absolute w-full h-full object-scale-down left-0 top-0" media={media} srcSet={srcset} /> : 
                 <img className="absolute w-full h-full object-scale-down left-0 top-0" src={src} alt="Product variation image" />

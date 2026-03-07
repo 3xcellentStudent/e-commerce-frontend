@@ -6,7 +6,7 @@ import Box from '@mui/material/Box';
 import SpecificationsList from '../SpecificationsList/SpecificationsList';
 import { useSelector } from 'react-redux';
 import { GlobalDataType } from '@/types/main/globalData.type';
-import { ProductFullModel } from '@/types/global/model/product/product.full.model';
+import { ProductFullModel } from '@/types/api/product/product.full.model';
 // import { ProductGetRecursiveDto } from '@/types/dto/mongodb/product/product.get.recursive.dto';
 
 interface Props {

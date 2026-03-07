@@ -1,6 +1,6 @@
 import RatingComp from "@/components/pages/product/common/RatingComp/RatingComp";
-import { ProductFullModel } from "@/types/global/model/product/product.full.model";
-import { ProductVariationModel } from "@/types/global/model/product/variation/product.variation.model";
+import { ProductFullModel } from "@/types/api/product/product.full.model";
+import { ProductVariationModel } from "@/types/api/product/variation/product.variation.model";
 // import { ProductDataType } from "@/types/main/productData.type";
 
 interface Props {

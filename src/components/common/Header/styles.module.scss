@@ -37,6 +37,7 @@
   height: 100%;
   margin: 0 auto;
   padding: 0 3rem;
+  z-index: 10;
 }
 
 .container.active {
@@ -52,19 +53,43 @@
   transition: .2s ease-in-out;
 }
 
-.navigation_link {
+.navigation_container {
+  display: flex;
+  justify-content: center;
   text-align: center;
-  display: inline-block;
   padding: 5px 10px;
   cursor: pointer;
   letter-spacing: 2px;
-  position:relative;
-  overflow:hidden;
+  position: relative;
   margin: 0 10px;
   text-decoration: none;
   font-weight: 700;
   font-size: 1.15rem;
-  // transition: all .3s;
+  transition: .3s linear;
+  z-index: 1;
+  
+  & .menu_accordeon {
+    position: absolute;
+    top: 100%;
+    z-index: 20;
+    background-color: red;
+
+    /* МАГИЯ: Анимация от 0 до 100% контента */
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 500ms;
+  }
+  
+  .submenu {
+    width: max-content;
+    overflow: hidden;
+  }
+
+  &:hover {
+    & .menu_accordeon {
+      grid-template-rows: 1fr; /* Высота 100% (весь контент) */
+    }
+  }
 
   &::before {
     content: "";
@@ -80,4 +105,9 @@
     width: 100%;
     left:0;
   }
+}
+
+.basket {
+  width: 2rem;
+  height: 2rem;
 }

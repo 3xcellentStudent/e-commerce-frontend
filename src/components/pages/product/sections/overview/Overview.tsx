@@ -3,9 +3,8 @@ import Purchase from './parts/PurchaseOverviewComponent/Purchase';
 import LargeCarousel from './parts/CarouselOverview/LargeCarousel/LargeCarousel';
 import SmallCarousel from './parts/CarouselOverview/SmallCarousel/SmallCarousel';
 // import { useState } from 'react';
-import { GlobalDataType } from '@/types/main/globalData.type';
 import PurchaseOverviewComponent from './parts/PurchaseOverviewComponent/PurchaseOverviewComponent';
-import { ProductFullModel } from '@/types/global/model/product/product.full.model';
+import { ProductFullModel } from '@/types/api/product/product.full.model';
 import ProductApi from "@/api/database/product/product.api";
 
 // export default function Overview({
