@@ -3,7 +3,7 @@ export interface ProductVariationModel {
   parentId: string;
   stockInfo: StockInfo;
   variationName: string;
-  productOptions: ProductOption[];
+  variationOptions: VariationOptions;
   image: Image[]; 
   collectionName: string;
   createdAt?: number;
@@ -27,10 +27,10 @@ export interface StockInfo {
   quantityAvailable: number;
 }
 
-export interface ProductOption {
-  name?: string;
-  type?: string;
-  items?: Item[];
+export interface VariationOptions {
+  name: string;
+  type: string;
+  value: string
 }
 
 export interface Item {

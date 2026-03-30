@@ -8,7 +8,6 @@ import Link from 'next/link';
 import model from "@/models/components/header/navigation.json"
 import { motion, useScroll, useMotionValueEvent } from "motion/react"
 import { useState } from "react";
-import BasketSVG from "@/components/SVG/basket/BasketSVG";
 
 export default function Header(){
 
@@ -79,7 +78,7 @@ export default function Header(){
         <div>
           <button className="w-[2rem] h-[2rem]">
             <div className="pointer-events-none">
-              <BasketSVG/>
+              {/* <BasketSVG/> */}
             </div>
           </button>
           {/* <BadgeButton className={styles.basket}>

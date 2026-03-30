@@ -3,6 +3,6 @@ import { ProductVariationModel } from "@/types/api/product/variation/product.var
 
 export interface CartStateActionsType {
   add: PayloadAction<ProductVariationModel>
-  remove: PayloadAction<number>
-  increaseQuantity: PayloadAction<number>
+  remove: PayloadAction<string>
+  counter: PayloadAction<number>
 }

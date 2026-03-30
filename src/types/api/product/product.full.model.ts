@@ -1,13 +1,13 @@
 import { ProductVariationModel } from "./variation/product.variation.model";
 
-export interface ProductFullModel {
+export interface ProductParentModel {
   id: string;
-  reviewsId: string[];
-  productVariationsId: string[];
+  // reviewsIds: string[];
+  // productVariationsId: string[];
   rating: number;
   productName: string;
   descriptions: ProductDescriptions;
-  productVariations: ProductVariationModel[];
+  variationEntities: ProductVariationModel[];
   specifications: ProductSpecifications;
   mediaContent: MediaContent[];
   reviewsSnapshot: ReviewsSnapshot;

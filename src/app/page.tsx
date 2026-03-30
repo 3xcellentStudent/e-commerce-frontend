@@ -33,7 +33,6 @@ export default function Home(){
         <AboutUs/>
       </main>
       <footer></footer>
-
       <CurvyLinesSVG className="absolute top-0 left-0 h-[100vh* (1vw + 1vh)] w-[100vw] min-w-[1810px]" />
     </>
   )

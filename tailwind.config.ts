@@ -44,6 +44,9 @@ const config: Config = {
       },
       spacing: {
         'section-top': '7rem'
+      },
+      maxWidth: {
+        'main': '1280px'
       }
     },
     screens: {

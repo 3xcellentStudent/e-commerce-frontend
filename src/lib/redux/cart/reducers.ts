@@ -1,19 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { CartStateActionsType } from "./types";
-import { ProductVariationModel } from "@/types/api/product/variation/product.variation.model";
+import {CartProductVariationModel} from "@/types/cart/variation/cart.variation.types";
+import CartEntityDto from "@/dto/cart/cart.entity.dto";
+import {enqueueSnackbar} from "@/lib/redux/snackbar/reducers"
+import { useAppDispatch } from "../hooks";
 
 // const initialState: ProductVariationModel[] = []
-const initialState: ProductVariationModel[] = [
+const initialState: CartProductVariationModel[] = [
   {
-		"id": "780b396e-5151-3f91-8ed7-07e2e7ff5982",
+		"id": "780b396e-5151-3f91-8ed7-07e2e7ff5981",
 		"parentId": "55fe9ff8-5513-4216-972b-48a0fb3bfcfe",
 		"stockInfo": {
-			"quantityMax": 100,
+			"quantityMax": 10,
 			"price": "27.99",
-			"quantityAvailable": 100
+			"quantityAvailable": 10
 		},
 		"variationName": "Lavender Oil Organic",
-		"productOptions": [],
+		"variationOptions": {
+			"name": "50ml",
+			"type": "Size",
+			"value": "",
+		},
 		"image": [
 			{
 				"media": "",
@@ -23,18 +30,23 @@ const initialState: ProductVariationModel[] = [
 		],
 		"collectionName": "variation-essential-oils",
 		"createdAt": 1764743047643,
-		"updatedAt": 1768173892233
+		"updatedAt": 1768173892233,
+		"customerSelectedQuantity": 1,
 	},
   {
 		"id": "780b396e-5151-3f91-8ed7-07e2e7ff5982",
 		"parentId": "55fe9ff8-5513-4216-972b-48a0fb3bfcfe",
 		"stockInfo": {
-			"quantityMax": 100,
+			"quantityMax": 8,
 			"price": "27.99",
-			"quantityAvailable": 100
+			"quantityAvailable": 6
 		},
 		"variationName": "Lavender Oil Organic",
-		"productOptions": [],
+		"variationOptions": {
+			"name": "50ml",
+			"type": "Size",
+			"value": "",
+		},
 		"image": [
 			{
 				"media": "",
@@ -44,18 +56,23 @@ const initialState: ProductVariationModel[] = [
 		],
 		"collectionName": "variation-essential-oils",
 		"createdAt": 1764743047643,
-		"updatedAt": 1768173892233
+		"updatedAt": 1768173892233,
+		"customerSelectedQuantity": 1,
 	},
   {
-		"id": "780b396e-5151-3f91-8ed7-07e2e7ff5982",
+		"id": "780b396e-5151-3f91-8ed7-07e2e7ff5983",
 		"parentId": "55fe9ff8-5513-4216-972b-48a0fb3bfcfe",
 		"stockInfo": {
-			"quantityMax": 100,
+			"quantityMax": 3,
 			"price": "27.99",
-			"quantityAvailable": 100
+			"quantityAvailable": 3
 		},
 		"variationName": "Lavender Oil Organic",
-		"productOptions": [],
+		"variationOptions": {
+			"name": "50ml",
+			"type": "Size",
+			"value": "",
+		},
 		"image": [
 			{
 				"media": "",
@@ -65,7 +82,8 @@ const initialState: ProductVariationModel[] = [
 		],
 		"collectionName": "variation-essential-oils",
 		"createdAt": 1764743047643,
-		"updatedAt": 1768173892233
+		"updatedAt": 1768173892233,
+		"customerSelectedQuantity": 1,
 	}
 ]
 
@@ -74,23 +92,33 @@ const slice = createSlice({
   initialState,
   reducers: {
     add: (state, action: CartStateActionsType["add"]) => {
-      state.push(action.payload)
+			const newCartEntity = new CartEntityDto(action.payload);
+      state.push(newCartEntity);
       return state;
       // console.log('after', current(state))
     },
     remove: (state, action: CartStateActionsType["remove"]) => {
-      return state.splice(action.payload, 1)
+			return state.filter(({id}) => id !== action.payload);
     },
-    // increaseQuantity: (state, action: CartStateActionsType["increaseQuantity"]) => {
-    //   const product = state[action.payload];
-    //   if(product.stockInfo + 1 <= product.quantityMax){
-    //     product.quantity++;
-    //   } else {
-    //   }
-    // }
+    increase: (state, action: CartStateActionsType["counter"]) => {
+      if(state[action.payload].customerSelectedQuantity + 1 <= state[action.payload].stockInfo.quantityAvailable){
+        state[action.payload].customerSelectedQuantity++;
+				return state;
+      } else {
+				const dispatch = useAppDispatch();
+				dispatch(enqueueSnackbar({message: "You have maximum of available amount !", severity: "info"}))
+				return state;
+      }
+    },
+		decrease: (state, action: CartStateActionsType["counter"]) => {
+			if(state[action.payload].customerSelectedQuantity - 1 > 0){
+				state[action.payload].customerSelectedQuantity--;
+				return state;
+			}
+		}
   },
 });
 
-export const {add, remove} = slice.actions;
+export const {add, remove, increase, decrease} = slice.actions;
 
 export default slice.reducer;
