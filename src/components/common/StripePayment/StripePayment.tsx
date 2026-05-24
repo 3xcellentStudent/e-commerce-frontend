@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 import styles from "./styles.module.scss"
 import StripeApi from "@/api/stripe/checkout";
 import ProductOptionsDto from "@/api/stripe/dto/ProductOptionsDto";
-import { useSelector } from "react-redux";
-import { CartObjectType } from "@/types/cartTypes/cartObject.types";
-import { CartProduct } from "@/types/storeTypes";
+import { CartProductVariationModel } from "@/types/cart/variation/cart.variation.types";
+import { useAppSelector } from "@/lib/redux/hooks";
+import { ProductVariationModel } from "@/types/api/product/variation/product.variation.model";
 
 
 export default function StripePayment(){
@@ -17,7 +17,7 @@ export default function StripePayment(){
     {betas: ['custom_checkout_beta_6'],}
   );
 
-  const cart = useSelector(({cartObject: {cart}}: {cartObject: CartObjectType}) => (cart))
+  const cart = useAppSelector(({cart}) => cart);
 
   const [clientSecret, setClientSecret] = useState<string | null>(null)
   // useEffect(() => {
@@ -37,10 +37,10 @@ export default function StripePayment(){
     }
   }, [cart])
 
-  function getRequestDto(cart: CartProduct[]){
-    const cartItemsDto = cart.map((object) => {
-      const value = object.fields[0].value
-      const stockStatus = object.fields[0].stockStatus
+  function getRequestDto(cart: ProductVariationModel[]){
+    const cartItemsDto = cart.map((entity) => {
+      // const value = object.fields[0].value
+      // const stockStatus = object.fields[0].stockStatus
 
       const productOptionsDto = new ProductOptionsDto({...object, unitAmount: object.price, value, stockStatus})
 

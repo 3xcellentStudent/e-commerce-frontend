@@ -34,7 +34,7 @@ export default function Snackbar(){
   }, [])
 
   return(
-    <div className="sticky bottom-0 left-0">
+    <div className="fixed bottom-0 left-0">
       {state.length > 0 && state.map(({id, snackbar: {message, severity}}) => {
         return <SnackbarItem key={id} {...{id, message, severity: severity as SeverityType}} onClose={closeSnackbar} />;
       })}

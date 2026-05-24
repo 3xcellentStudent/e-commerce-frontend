@@ -46,11 +46,8 @@ export default function CartList(){
                 </section>
                 
                 <section className="flex flex-col justify-between items-end">
-                  <CartTrash styles={`${styles.trash}`} id={id} />
+                  <CartTrash styles={`${styles.trash}`} id={id} variationName={variationName} />
                   <Counter count={customerSelectedQuantity} index={index} />
-                  {/* <button className={`${styles.trash} relative mr-4`}>
-                    <CartTrashIconSVG tailwindStyle="absolute right-0 w-full h-full stroke-aux-accent" />
-                  </button> */}
                 </section>
               </div>
 

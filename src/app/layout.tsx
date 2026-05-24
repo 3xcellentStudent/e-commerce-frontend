@@ -36,7 +36,7 @@ export default function RootLayout({children}: {children: ReactNode}){
 
   return (
     <html className={`${inter.variable} ${mollie.variable}`} lang="en">
-      <body className='relative overflow-x-hidden'>
+      <body className='relative overflow-x-hidden min-h-svh'>
         <StoreProvider>
           {children}
           {/* <DrawerComponent anchor='right'>

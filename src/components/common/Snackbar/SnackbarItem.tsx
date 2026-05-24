@@ -1,5 +1,6 @@
 import SnackbarInitialState, { SeverityMap, SeverityType } from "@/lib/redux/snackbar/types";
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
+import styles from "./styles.module.scss"
 
 
 interface Props {
@@ -50,7 +51,7 @@ export default function SnackbarItem({id, message, severity, onClose}: Props){
   };
 
   return(
-    <div className={`w-[200px] h-[70px] relative ${severity ? colors[severity] : ""}`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <div className={`${styles.snackbar} relative ${severity ? colors[severity] : ""}`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       {message || ""}
     </div>
   )

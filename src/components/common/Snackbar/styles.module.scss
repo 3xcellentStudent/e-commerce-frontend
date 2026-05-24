@@ -16,4 +16,11 @@
   }
 
   animation: snackbarAnim 5000ms ease-out forwards;
+
+  
+  max-width: 24rem;
+  margin: 1rem;
+  padding: .75rem 1.25rem;
+  border-radius: 1rem;
+  font-size: .90rem;
 }

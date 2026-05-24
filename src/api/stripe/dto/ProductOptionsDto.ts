@@ -1,6 +1,3 @@
-import { FieldsRefType } from "@/types/pages/product/overview.types"
-import { CartProduct } from "@/types/storeTypes"
-
 export default class ProductOptionsDto {
   productName: string
   productId: string
