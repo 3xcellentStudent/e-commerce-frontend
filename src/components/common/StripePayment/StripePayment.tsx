@@ -1,3 +1,5 @@
+'use client'
+
 import CheckoutCreateSessionServerResponse from "@/types/stripe/sessions.create";
 import { EmbeddedCheckout, EmbeddedCheckoutProvider } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
@@ -8,6 +10,7 @@ import ProductOptionsDto from "@/api/stripe/dto/ProductOptionsDto";
 import { CartProductVariationModel } from "@/types/cart/variation/cart.variation.types";
 import { useAppSelector } from "@/lib/redux/hooks";
 import { ProductVariationModel } from "@/types/api/product/variation/product.variation.model";
+import { CheckoutDtoType } from "@/types/stripe/stripe.checkout.types";
 
 
 export default function StripePayment(){
@@ -33,21 +36,22 @@ export default function StripePayment(){
 
   useEffect(() => {
     if(!!cart.length){
-      getRequestDto(cart)
+      getRequestDto()
     }
   }, [cart])
 
-  function getRequestDto(cart: ProductVariationModel[]){
-    const cartItemsDto = cart.map((entity) => {
+  function getRequestDto(){
+    // const cartItemsDto = cart.map((entity) => {
       // const value = object.fields[0].value
       // const stockStatus = object.fields[0].stockStatus
 
-      const productOptionsDto = new ProductOptionsDto({...object, unitAmount: object.price, value, stockStatus})
+      // const productOptionsDto = new ProductOptionsDto({...entity})
 
-      return productOptionsDto;
-    })
+    //   return productOptionsDto;
+    // })
 
-    StripeApi.fetchClientSecret(setClientSecret, cartItemsDto);
+    const entities: CheckoutDtoType[] = cart.map(({collectionName, id, customerSelectedQuantity}) => ({collectionName, productId: id, quantity: customerSelectedQuantity}));
+    StripeApi.fetchClientSecret(setClientSecret, entities);
   }
 
   // async function fetchClientSecret(){

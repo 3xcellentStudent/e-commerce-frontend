@@ -1,5 +1,6 @@
 import CartList from "@/components/pages/purchase/cart/CartList/CartList";
 import styles from "./styles.module.scss"
+import StripePayment from "@/components/common/StripePayment/StripePayment";
 
 export default function PurchasePage(){
 
@@ -13,7 +14,7 @@ export default function PurchasePage(){
           <CartList/>
         </section>
         <section className={`${styles.section_checkout}`}>
-
+          <StripePayment/>
         </section>
       </div>
     </>
