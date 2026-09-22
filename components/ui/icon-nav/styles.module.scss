@@ -1,0 +1,23 @@
+@keyframes badgeBounce {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    transform: scale(0.85) translateY(-.25rem);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+.badge {
+  transform-origin: center;
+}
+
+.link {
+  &:hover {
+    .badge {
+      animation: badgeBounce 300ms ease-in-out;
+    }
+  }
+}
