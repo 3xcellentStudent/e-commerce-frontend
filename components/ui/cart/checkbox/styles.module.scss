@@ -1,0 +1,33 @@
+@import "@radix-ui/colors/black-alpha.css";
+@import "@radix-ui/colors/violet.css";
+
+.root {
+	background-color: white;
+	width: 25px;
+	height: 25px;
+	border-radius: 4px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 2px 10px var(--black-a7);
+
+  &:hover {
+    background-color: var(--violet-3);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px black;
+  }
+
+}
+
+.indicator {
+	color: var(--violet-11);
+}
+
+.label {
+	color: white;
+	padding-left: 15px;
+	font-size: 15px;
+	line-height: 1;
+}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import NavigationMenu from "@/components/features/navigation/NavigationMenu";
+import StoreProvider from "./StoreProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,9 +22,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="min-h-[50rem] w-full flex flex-col">
-        <NavigationMenu />
-        {children}
+      <body className="w-full relative min-h-full text-foreground">
+        <StoreProvider>
+          <NavigationMenu />
+          {children}
+        </StoreProvider>
       </body>
     </html>
   );

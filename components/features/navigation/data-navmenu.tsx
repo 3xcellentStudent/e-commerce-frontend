@@ -1,5 +1,6 @@
-import { HouseIcon, LayoutDashboardIcon } from "@animateicons/react/lucide";
+// import { HouseIcon, LayoutDashboardIcon, ShoppingCartIcon, ShoppingBasketIcon };
 import type { IconHandle } from "@animateicons/react";
+import { HouseIcon, LayoutDashboardIcon, ShoppingBasketIcon } from "@animateicons/react/lucide";
 import type React from "react";
 
 export type AnimatedIconComponent = React.ForwardRefExoticComponent<
@@ -14,8 +15,9 @@ export interface IconNavigationType {
 }
 
 const data: IconNavigationType[] = [
-  { Icon: HouseIcon, name: "home", route: "/", badge: true },
-  { Icon: LayoutDashboardIcon, name: "categories", route: "/product", badge: true },
+  { Icon: HouseIcon, name: "home", route: "/", badge: false },
+  { Icon: LayoutDashboardIcon, name: "categories", route: "/product", badge: false },
+  { Icon: ShoppingBasketIcon, name: "cart", route: "/cart", badge: true },
 ];
 
 export default data;

@@ -1,4 +1,4 @@
-import IconNavLink from "@/components/ui/icon-nav/IconNavLink";
+import NavigationLink from "@/components/ui/icon/icon-nav-link/NavigationLink";
 
 import data from "@/components/features/navigation/data-navmenu";
 
@@ -9,12 +9,12 @@ export default function NavigationMenu(){
   console.log("Render !!!")
 
   return(
-    <header className={`${styles.header} fixed w-full max-w-[20rem] bottom-4 left-1/2 -translate-x-1/2 px-6`}>
-      <nav className="w-full rounded-3xl bg-surface p-1">
+    <header className={`${styles.header} fixed w-full bottom-0 left-1/2 -translate-x-1/2 px-6 pb-2 pt-2 border-t-2 border-saturated`}>
+      <nav className="w-full">
         <menu className="flex flex-row h-full justify-between align-items-center w-full">
           {data.map((props) => (
             <li className="h-inherit" key={props.route}>
-              <IconNavLink {...props} />
+              <NavigationLink {...props} />
             </li>
           ))}
         </menu>

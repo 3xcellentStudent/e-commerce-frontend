@@ -6,18 +6,24 @@
 
 @custom-variant dark (&:is(.dark *));
 
-:root {
-  --background: hsl(53, 43%, 96%);                /* #FDFBF7 */
-  --foreground: hsl(51, 46%, 8%);                /* #3A2E2B */
+button {
+	all: unset;
+}
 
-  --surface: hsl(50, 45%, 87%);                   /* #F3EDE8 */
-  --secondary: hsl(49, 46%, 84%);                 /* #B09E90 */
+:root {
+  --background: hsl(52, 45%, 90%);                /* #FDFBF7 */
+  --foreground: hsl(52, 45%, 10%);                /* #3A2E2B */
+
+  --surface: hsl(52, 44%, 93%);                   /* #F3EDE8 */
+  --secondary: hsl(51, 47%, 94%);                 /* #B09E90 */
+  
+  --saturated: hsl(50, 45%, 87%);                 /* #B09E90 */
 
   --primary: hsl(114, 22%, 39%);                   /* #6B8E4E */
   --primary-foreground: var(--background);        /* #3A2E2B */
 
-  --muted: hsl(50, 13%, 57%);                     /* #E8DFD8 */
-  --muted-foreground: hsl(51, 21%, 87%);          /* #75665E */
+  --muted: hsl(51, 17%, 68%);                     /* #E8DFD8 */
+  --muted-foreground: hsl(51, 10%, 49%);          /* #75665E */
 
   --accent: hsl(15, 65%, 65%);                   /* #E06D53 */
 
@@ -32,6 +38,7 @@
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
+  --color-saturated: var(--saturated);
   /* --color-secondary-foreground: var(--secondary-foreground); */
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
