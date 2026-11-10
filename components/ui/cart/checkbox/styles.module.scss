@@ -1,33 +1,28 @@
-@import "@radix-ui/colors/black-alpha.css";
-@import "@radix-ui/colors/violet.css";
+// @import "@radix-ui/colors/black-alpha.css";
+// @import "@radix-ui/colors/violet.css";
 
 .root {
-	background-color: white;
-	width: 25px;
-	height: 25px;
+	width: 1rem;
+	height: 1rem;
+	padding: .1rem;
 	border-radius: 4px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	box-shadow: 0 2px 10px var(--black-a7);
+	background-color: var(--muted);
 
-  &:hover {
-    background-color: var(--violet-3);
-  }
-
-  &:focus {
-    box-shadow: 0 0 0 2px black;
-  }
-
+	&[data-state="checked"]{
+		background-color: var(--accent);
+	}
 }
 
-.indicator {
-	color: var(--violet-11);
-}
+// .indicator {
+// 	color: var(--violet-11);
+// }
 
-.label {
-	color: white;
-	padding-left: 15px;
-	font-size: 15px;
-	line-height: 1;
-}
+// .label {
+// 	color: white;
+// 	padding-left: 15px;
+// 	font-size: 15px;
+// 	line-height: 1;
+// }

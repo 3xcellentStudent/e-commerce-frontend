@@ -1,4 +1,5 @@
 import CartItem from "@/components/features/cart/item/CartItem";
+import CartList from "@/components/features/cart/list/CartList";
 import CheckboxIcon from "@/components/ui/icon/checkbox/CheckboxIcon";
 import NavigationLink from "@/components/ui/icon/icon-nav-link/NavigationLink";
 import {ChevronLeft} from "@animateicons/react/lucide"
@@ -13,10 +14,9 @@ export default function Cart(){
       </div>
 
       <div>
-        <div className="w-full h-[2px] relative bg-muted"></div>
-        <ul>
-          <CartItem/>
-        </ul>
+        <div className="w-full h-[2px] relative bg-muted">
+          <CartList/>
+        </div>
       </div>
     </main>
   )
