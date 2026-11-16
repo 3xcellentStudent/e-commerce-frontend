@@ -1,8 +1,5 @@
-import CartItem from "@/components/features/cart/item/CartItem";
 import CartList from "@/components/features/cart/list/CartList";
-import CheckboxIcon from "@/components/ui/icon/checkbox/CheckboxIcon";
 import NavigationLink from "@/components/ui/icon/icon-nav-link/NavigationLink";
-import { useAppDispatch } from "@/lib/hooks";
 import { ProductVariationModel } from "@/types/schema/product/variation/product.variation.type";
 import {ChevronLeft} from "@animateicons/react/lucide"
 
@@ -19,7 +16,7 @@ export default async function Cart(){
       </div>
 
       <div>
-        <div className="w-full h-[2px] relative bg-muted">
+        <div className="w-full relative">
           <CartList data={data.content as ProductVariationModel[]} />
         </div>
       </div>

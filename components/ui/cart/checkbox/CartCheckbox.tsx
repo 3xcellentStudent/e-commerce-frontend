@@ -5,7 +5,7 @@ import CheckboxIcon from "@/components/ui/icon/checkbox/CheckboxIcon";
 export default function CartCheckbox(){
   
   return(
-    <div style={{ display: "flex", alignItems: "center" }}>
+    <div className="flex items-center">
       <Checkbox.Root className={`${styles.root}`} defaultChecked={false} id="c1">
         <Checkbox.Indicator className={styles.indicator}>
           <CheckboxIcon />

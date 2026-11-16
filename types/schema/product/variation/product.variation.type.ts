@@ -5,9 +5,15 @@ export interface ProductVariationModel {
   variationName: string;
   variationOptions: VariationOptions;
   image: Image[];
+  descriptions: Descriptions[];
   createdAt: Date;
   updatedAt: Date;
 }
+
+  export interface Descriptions {
+    summary: string;
+    presentable: string[];
+  } 
 
 export interface Image {
   media: string;
