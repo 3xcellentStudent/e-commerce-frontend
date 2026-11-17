@@ -1,11 +1,8 @@
 // import { HouseIcon, LayoutDashboardIcon, ShoppingCartIcon, ShoppingBasketIcon };
+import { AnimatedIconComponent } from "@/types/icons/lib/animateicons/interactive/icon.props";
 import type { IconHandle } from "@animateicons/react";
 import { HouseIcon, LayoutDashboardIcon, ShoppingBasketIcon } from "@animateicons/react/lucide";
 import type React from "react";
-
-export type AnimatedIconComponent = React.ForwardRefExoticComponent<
-  React.HTMLAttributes<HTMLDivElement> & { size?: number; color?: string } & React.RefAttributes<IconHandle>
->;
 
 export interface IconNavigationType {
   Icon: AnimatedIconComponent;

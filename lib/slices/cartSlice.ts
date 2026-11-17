@@ -5,11 +5,11 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 // & Omit<ProductVariationModel, 'createdAt' | 'updatedAt'> 
 // & {createdAt: string | Date; updatedAt: string | Date;};
 
-export type StoreProductVariationModel = {customerQuantity: number} & ProductVariationModel; 
+export type StoreProductVariationModel = {customerQuantity: number; isChecked: boolean} & ProductVariationModel; 
 
 export type StoreProductVariationRecord = Record<string, StoreProductVariationModel>;
 
-type ChangeQuantityType = PayloadAction<{id: string, customerQuantity: number}>;
+// type ChangeQuantityType = PayloadAction<{id: string, customerQuantity: number}>;
 
 const cartSlice = createSlice({
   name: 'cart',
@@ -32,27 +32,25 @@ const cartSlice = createSlice({
         delete state[id];
       } else {}
     },
-    // rewrite(state, {payload: {id, customerQuantity}}: ChangeQuantityType){
-    //   if(!!state[id]){
-    //     state[id].customerQuantity = customerQuantity;
-    //   } else {}
-    // },
+    isChecked(state, {payload: id}: PayloadAction<string>){
+      state[id].isChecked = !state[id].isChecked;
+    },
     increase(state, {payload: id}: PayloadAction<string>){
       const itemFromStore = state[id];
       const newQuantity = ++itemFromStore.customerQuantity
       if(!!itemFromStore && newQuantity <= itemFromStore.stockInfo.amountAvailable){
         state[id] = {...itemFromStore, customerQuantity: newQuantity};
-      } else {}
+      }
     },
     decrease(state, {payload: id}: PayloadAction<string>){
       const itemFromStore = state[id];
-      const newQuantity = --itemFromStore.customerQuantity
-      if(!!itemFromStore && newQuantity < itemFromStore.stockInfo.amountAvailable){
+      const newQuantity = itemFromStore.customerQuantity - 1
+      if(!!itemFromStore && newQuantity > 0){
         state[id] = {...itemFromStore, customerQuantity: newQuantity};
-      } else {}
+      }
     }
-  }
+  },
 })
 
-export const {remove, add, increase, decrease} = cartSlice.actions;
+export const {remove, add, isChecked, increase, decrease} = cartSlice.actions;
 export default cartSlice.reducer;

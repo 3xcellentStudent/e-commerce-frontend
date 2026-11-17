@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
 
 import cartReducer from "./slices/cartSlice"
+import alertDialogSlice from "./slices/alertDialogSlice"
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
       cart: cartReducer,
+      alertDialog: alertDialogSlice
     }
   })
 }

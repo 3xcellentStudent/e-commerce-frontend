@@ -13,17 +13,17 @@ export default function CartList({data}: {data: ProductVariationModel[]}){
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    data.forEach(item => dispatch(add({...item, customerQuantity: 1})))
-  }, [])
+    data.forEach(item => dispatch(add({...item, customerQuantity: 1, isChecked: true})))
+  }, [data])
+
   const cart = useAppSelector(({cart}) => cart);
 
   return(
     <ul>
       {Object.values(cart).map((entity) => {
-        console.log("Entries: ", entity)
+        // console.log(entity.id + " - " + entity.variationName)
         return(
           <CartItem {...entity} key={entity.id} />
-          // <></>
         )
       })}
     </ul>

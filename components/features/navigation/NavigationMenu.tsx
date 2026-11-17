@@ -1,4 +1,4 @@
-import NavigationLink from "@/components/ui/icon/icon-nav-link/NavigationLink";
+import NavigationLink from "@/components/ui/icon/interactive/nav-link/NavigationLink";
 
 import data from "@/components/features/navigation/data-navmenu";
 

@@ -6,9 +6,9 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* button {
-	all: unset;
-} */
+button {
+	cursor: pointer;;
+}
 
 :root {
   --background: hsl(52, 45%, 90%);                /* #FDFBF7 */
@@ -46,7 +46,7 @@
 }
 
 body {
-  @apply w-full px-4 bg-background;
+  @apply w-full bg-background text-foreground;
 }
 
 a {

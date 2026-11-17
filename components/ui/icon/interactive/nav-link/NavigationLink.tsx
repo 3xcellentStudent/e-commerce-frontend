@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRef } from "react";
 import type { IconHandle } from "@animateicons/react";
-import type { AnimatedIconComponent } from "@/components/features/navigation/data-navmenu";
+import type { AnimatedIconComponent } from "@/types/icons/lib/animateicons/interactive/icon.props";
 import styles from "./styles.module.scss"
 
 interface IconNavLinkProps {
@@ -11,9 +11,11 @@ interface IconNavLinkProps {
   route: string;
   Icon: AnimatedIconComponent;
   size?: number;
+  text?: string;
 }
 
-const NavigationLink = ({ badge, Icon, route, size }: IconNavLinkProps) => {
+export default function InteractiveNavLink({ badge, Icon, route, size, text }: IconNavLinkProps){
+  
   const iconRef = useRef<IconHandle | null>(null);
 
   // ${route === pathname ? "bg-foreground text-background" : "bg-background text-foreground"}
@@ -31,12 +33,12 @@ const NavigationLink = ({ badge, Icon, route, size }: IconNavLinkProps) => {
       {badge && (
         <span
           className={`
-            ${styles.badge} absolute pointer-events-none w-1.75 h-1.75 bg-accent rounded-full text-white top-1.25 right-1.25 z-1 text-sm
+            ${styles.badge} absolute pointer-events-none w-1.75 h-1.75 bg-accent 
+            rounded-full text-white top-1.25 right-1.25 z-1 text-sm
           `}
         />
       )}
+      {!!text?.length && <span className="font-bold text-2xl">{text}</span>}
     </Link>
   );
 }
-
-export default NavigationLink;
