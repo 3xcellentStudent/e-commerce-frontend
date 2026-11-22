@@ -10,7 +10,7 @@ import InteractiveButtonIcon from "@/components/ui/icon/interactive/button/Inter
 import AlertDialog from "@/components/features/alert-dialog/AlertDialog";
 
 function CartItem({
-  id, customerQuantity, image, variationName, variationOptions, isChecked: checked, stockInfo: {priceInCents, currency}
+  id, customerQuantity, image, productName, options, isChecked: checked, stockInfo: {priceInCents, currency}
 }: StoreProductVariationModel){
 
   const dispatch = useAppDispatch();
@@ -38,6 +38,8 @@ function CartItem({
 
   const [alertState, setAlertState] = useState<boolean>(false)
 
+  console.log(image?.src)
+
   return(
     <li className={`w-full mb-4 bg-surface p-3 rounded-xl ${!checked && "brightness-85"} duration-100`}>
       <article className="flex items-center h-18 w-full gap-1">
@@ -46,17 +48,17 @@ function CartItem({
         </div>
         {/* <Separator.Root decorative orientation="vertical" className="bg-muted h-full w-[1px] mx-1" /> */}
         <figure>
-          <Image src={image[0]?.src || ""} alt={variationName} width={imageSizeRef} height={imageSizeRef} loading="eager" />
+          <Image src={image?.src || ""} alt={productName} width={imageSizeRef} height={imageSizeRef} loading="eager" />
         </figure>
         {/* <Separator.Root decorative orientation="vertical" className="bg-muted h-full w-[1px] mx-1" /> */}
         <div className="flex flex-col flex-1 gap-2 ml-2">
           <div className="flex flex-row justify-between w-full">
             <div className="flex flex-col">
-              <h3 id={`product-title-${variationName}`} className="font-bold text-sm">
-                <a href="/products/cuticle-elixir">{variationName}</a>
+              <h3 id={`product-title-${productName}`} className="font-bold text-sm">
+                <a href="/products/cuticle-elixir">{productName}</a>
               </h3>
               <div>
-                <p className="text-xs text-muted">{variationOptions.value}</p>
+                <p className="text-xs text-muted">{options.items[0].value} {options.items[0].unit}</p>
               </div>
             </div>
               {/* <DeleteIcon className="text-red-600" /> */}
@@ -85,8 +87,8 @@ function CartItem({
       </article>
       {alertState && <AlertDialog 
         customerQuantity={customerQuantity}
-        image={image[0].src}
-        variationName={variationName}
+        image={image?.src}
+        productName={productName}
         state={alertState} 
         setState={setAlertState} 
         action={() => dispatch(remove(id))} 

@@ -9,7 +9,7 @@ export default function NavigationMenu(){
   console.log("Render !!!")
 
   return(
-    <header className={`${styles.header} fixed w-full bottom-0 left-1/2 -translate-x-1/2 px-6 pb-2 pt-2 border-t-2 border-saturated`}>
+    <header className={`${styles.header} z-100 fixed w-full bottom-0 left-1/2 -translate-x-1/2 px-6 pb-2 pt-2 border-t-2 border-saturated`}>
       <nav className="w-full">
         <menu className="flex flex-row h-full justify-between align-items-center w-full">
           {data.map((props) => (

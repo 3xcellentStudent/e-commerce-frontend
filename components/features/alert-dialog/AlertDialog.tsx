@@ -6,8 +6,8 @@ import styles from "./styles.module.scss"
 import Image from "next/image";
 import { Separator } from "@radix-ui/react-separator";
 
-export default function AlertDialog({image, variationName, customerQuantity, imageSize, state, setState, action}: {
-	state: boolean, setState: Dispatch<SetStateAction<boolean>>, action: () => void, image: string, variationName: string, 
+export default function AlertDialog({image, productName, customerQuantity, imageSize, state, setState, action}: {
+	state: boolean, setState: Dispatch<SetStateAction<boolean>>, action: () => void, image: string, productName: string, 
 	customerQuantity: number,
 	imageSize: number
 }){
@@ -28,11 +28,11 @@ export default function AlertDialog({image, variationName, customerQuantity, ima
 						</RadixAlertDialog.Title>
 						<div className="flex flex-row flex-1 text-white/80 font-light text-sm w-full gap-2 mb-8">
 							<figure className={``}>
-								<Image src={image || ""} alt={variationName} width={imageSize} height={imageSize} loading="eager" />
+								<Image src={image || ""} alt={productName} width={imageSize} height={imageSize} loading="eager" />
 							</figure>
 							{/* <Separator decorative orientation="vertical" className="bg-muted h-18 w-[1px] mx-1" /> */}
 							<div className="flex flex-col justify-between flex-1">
-								<h3 className="font-bold text-base">{variationName}</h3>
+								<h3 className="font-bold text-base">{productName}</h3>
 								<div>
 									<span className="w-[1rem] text-center whitespace-nowrap">Qty: {customerQuantity}</span>
 								</div>

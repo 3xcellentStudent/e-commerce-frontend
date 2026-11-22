@@ -1,3 +1,5 @@
+'use client'
+
 import { AnimatedIconComponent } from "@/types/icons/lib/animateicons/interactive/icon.props";
 import { IconHandle } from "@animateicons/react";
 import { useRef } from "react"
@@ -5,9 +7,9 @@ import { useRef } from "react"
 interface IconNavLinkProps {
   Icon: AnimatedIconComponent;
   size?: number;
-  styles: {icon?: string, button?: string};
+  styles?: {icon?: string, button?: string};
   action: () => void
-  metadata: string;
+  metadata?: string;
 }
 
 export default function InteractiveButtonIcon({Icon, size, styles, action, metadata}: IconNavLinkProps){
@@ -20,7 +22,7 @@ export default function InteractiveButtonIcon({Icon, size, styles, action, metad
     //   onPointerLeave={() => iconRef.current?.stopAnimation()}
     //   onTouchStart={() => iconRef.current?.startAnimation()}
     // >
-    <button type="button" className={`flex items-start ${styles?.button}`} aria-label={metadata}
+    <button type="button" onPointerDown={action} className={`flex items-start ${styles?.button}`} aria-label={metadata}
       onPointerEnter={() => iconRef.current?.startAnimation()}
       onPointerLeave={() => iconRef.current?.stopAnimation()}
       onTouchStart={() => iconRef.current?.startAnimation()}

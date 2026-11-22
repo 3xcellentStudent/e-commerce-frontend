@@ -9,6 +9,9 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: '**.aesop.ca', // замените на домен ваших картинок
       },
+      {
+        hostname: '**'
+      }
     ],
   },
 };
