@@ -1,6 +1,8 @@
 import getProductParentById from "@/api/products/products.api.id";
+import RatingStars from "@/components/features/rating/RatingStars";
 import InteractiveButtonIcon from "@/components/ui/icon/interactive/button/InteractiveButtonIcon";
-import ReviewStar from "@/components/ui/icon/review-star/ReviewHalfStar";
+import ReviewFullStar from "@/components/ui/icon/review-star/ReviewFullStar";
+import ReviewHalfStar from "@/components/ui/icon/review-star/ReviewHalfStar";
 import CheckboxOption from "@/components/ui/product/checkbox/CheckboxOption";
 import { ChevronLeft as ChevronLeftIcon } from "@animateicons/react/lucide";
 
@@ -15,18 +17,18 @@ export default async function ProductPage(props: Props){
 
   const params = await props.params;
   
-  const {productName, variations} = await getProductParentById({id: params.id});
+  const {productName, variations, ratingSummary, descriptions} = await getProductParentById({id: params.id});
 
   return (
     <>
       <main>
         <article className="relative h-[2000px]">
           <figure className="fixed left-0 top-0 w-full">
-            <img src={variations[0].image?.src || ""} alt="" />
+            <img src={variations[0].image?.src || "https://img.magnific.com/free-photo/product-branding-packaging_23-2150965825.jpg?semt=ais_hybrid&w=740&q=80"} alt="" />
           </figure>
           {/* <section className="relative z-10 bg-background p-4 rounded-t-2xl mt-[calc(0.796*1svh)]"> */}
           {/* <section className="relative z-10 bg-background p-4 rounded-t-2xl mt-[calc(1.256*100svh)]"> */}
-          <section className="relative z-10 bg-background p-4 rounded-t-2xl min-h-screen mt-[55svh]">
+          <section className="relative z-10 bg-background p-4 rounded-t-2xl min-h-screen mt-[55svh] flex flex-col gap-3">
             <h1 className="text-2xl font-bold">{productName}</h1>
             {/* <div className="flex items-center gap-2" role="group"
             aria-label={`Рейтинг ${product.rating} из 5 на основе ${product.reviewsCount} re`}>
@@ -34,46 +36,22 @@ export default async function ProductPage(props: Props){
               <span>{product.rating}</span>
               <a href="#reviews">({product.reviewsCount} отзывов)</a>
             </div> */}
+            <div className="text-sm flex flex-row">
+              <RatingStars styles={{list: "flex flex-row gap-1 mr-4"}} ratingSummary={ratingSummary} />
+              <span className="text-foreground mr-1">{ratingSummary.averageRating}</span>
+              <span className="text-muted-foreground">({ratingSummary.totalCount} reviews)</span>
+            </div>
             <div>
-              {[1,2,3,4,5].map((star) => {
-                // const isChecked = currentRating === star;
-                // const isFilled = star <= activeDisplayRating;
-
-                return (
-                  <label
-                    key={star}
-                    className="group relative cursor-pointer p-0.5"
-                  >
-                    <input
-                      type="radio"
-                      name={"Rating"}
-                      value={star}
-                      checked={true}
-                      className="peer sr-only"
-                    />
-                    <span
-                      className={`
-                        block rounded-md transition-transform group-active:scale-95
-                        ${true ? "text-amber-400" : "text-muted-foreground/40"}
-                        peer-focus-visible:ring-2 peer-focus-visible:ring-ring peer-focus-visible:ring-offset-2
-                      `}
-                    >
-                      <ReviewStar styles={{svg: "fill-none stroke-accent"}} />
-                    </span>
-                    <span className="sr-only">
-                      {star} {star === 1 ? "звезда" : star < 5 ? "звезды" : "звёзд"} из 5
-                    </span>
-                  </label>
-                );
-              })}
+              <h4 className="">{descriptions.summary}</h4>
+              {descriptions.presentable.map(text => <p className="text-sm">{text}</p>)}
             </div>
             <fieldset>
               {/* <legend>Размер</legend> */}
-              <h3 className="">{variations[0].options.attribute}</h3>
+              <h3 className="mb-2">{variations[0].option.attribute}</h3>
               <ul>
-                {variations.map(({options, id}, idx) => {
+                {variations.map(({option, id}, idx) => {
                   return(
-                    <CheckboxOption key={id} value={`${options.value} ${options.unit}`} defaultChecked={!idx ? true : false} 
+                    <CheckboxOption key={id} value={`${option.value} ${option.unit}`} defaultChecked={!idx ? true : false} 
                     styles={{
                       root: `bg-primary/20 text-primary font-bold py-1 p-2 rounded-md text-sm 
                       data-[state=checked]:bg-primary/80 text-white data-[state=checked]:text-secondary`,

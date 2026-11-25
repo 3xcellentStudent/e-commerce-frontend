@@ -3,9 +3,9 @@ export interface ProductVariationModel {
   parentId: string;
   stockInfo: StockInfo;
   productName: string;
-  options: Options;
+  option: Option;
   image: Image;
-  descriptions: Description[];
+  // descriptions: Description[];
   createdAt: Date;
   updatedAt: Date;
 }
@@ -17,10 +17,10 @@ export interface Image {
   alt: string;
 }
 
-export interface Description {
-  summary: string;
-  presentable: string[];
-}
+// export interface Description {
+//   summary: string;
+//   presentable: string[];
+// }
 
 export interface StockInfo {
   amountMax: number;
@@ -30,7 +30,7 @@ export interface StockInfo {
   currency: string;
 }
 
-export interface Options {
+export interface Option {
   attribute: string;
   unit: string;
   value: string;

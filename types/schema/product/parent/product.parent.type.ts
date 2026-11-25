@@ -2,17 +2,20 @@ import { ProductVariationModel } from "../variation/product.variation.type";
 
 export interface ProductParentModel {
   id: string;
-  rating: number;
   productName: string;
   descriptions: Descriptions;
   variations: ProductVariationModel[];
   specifications: Specifications;
   mediaContent: MediaContent[];
-  // reviewsSnapshot: Map<number, string>;
-  reviewsSnapshot: {};
+  ratingSummary: RatingSummary;
   category: string;
   createdAt: Date;
   updatedAt: Date;
+}
+
+export interface RatingSummary {
+  averageRating: number;
+  totalCount: number;
 }
 
 export interface Descriptions {

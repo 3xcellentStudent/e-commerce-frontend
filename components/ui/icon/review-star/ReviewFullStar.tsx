@@ -7,7 +7,7 @@ interface Props {
 export default function ReviewFullStar({styles}: Props){
 
   return(
-    <svg className={styles.svg} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <svg className={styles.svg} viewBox="-1 -1 26 26" xmlns="http://www.w3.org/2000/svg">
       <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
       <g id="SVGRepo_iconCarrier">
